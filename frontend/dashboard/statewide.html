@@ -67,6 +67,9 @@ p { margin:0 0 12px; color:var(--fg-2); } p strong { color:var(--fg); }
 .readmore a { display:flex; flex-direction:column; gap:3px; text-decoration:none; background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:14px 16px; flex:1; min-width:200px; }
 .readmore a:hover { border-color:var(--accent); } .readmore a b { color:var(--fg); } .readmore a span { color:var(--muted); font-size:12.5px; }
 footer { color:var(--muted); font-size:12.5px; padding-block:22px; border-top:1px solid var(--line); margin-top:8px; }
+.gh-link { display:inline-flex; vertical-align:middle; color:var(--muted); margin-left:7px; line-height:0; transition:color .15s ease; }
+.gh-link svg { fill:currentColor; }
+.gh-link:hover, .gh-link:focus-visible { color:var(--accent); }
 </style>
 </head>
 <body>
@@ -117,7 +120,7 @@ footer { color:var(--muted); font-size:12.5px; padding-block:22px; border-top:1p
     <a href="technical.html"><b>Methods and code →</b><span>Every source and how it's collected.</span></a>
   </div>
 
-  <footer>Lone Star Ledger · ledger.precinctlabs.com · early-vote counts from the Texas Secretary of State Civix feed (election 53815).</footer>
+  <footer>Lone Star Ledger · ledger.precinctlabs.com · early-vote counts from the Texas Secretary of State Civix feed (election 53815). <a class="gh-link" href="https://github.com/PrecinctLabs/lone-star-ledger" target="_blank" rel="noopener noreferrer" title="Source code on GitHub"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M10.226 17.284c-2.965-.36-5.054-2.493-5.054-5.256 0-1.123.404-2.336 1.078-3.144-.292-.741-.247-2.314.09-2.965.898-.112 2.111.36 2.83 1.01.853-.269 1.752-.404 2.853-.404 1.1 0 1.999.135 2.807.382.696-.629 1.932-1.1 2.83-.988.315.606.36 2.179.067 2.942.72.854 1.101 2 1.101 3.167 0 2.763-2.089 4.852-5.098 5.234.763.494 1.28 1.572 1.28 2.807v2.336c0 .674.561 1.056 1.235.786 4.066-1.55 7.255-5.615 7.255-10.646C23.5 6.188 18.334 1 11.978 1 5.62 1 .5 6.188.5 12.545c0 4.986 3.167 9.12 7.435 10.669.606.225 1.19-.18 1.19-.786V20.63a2.9 2.9 0 0 1-1.078.224c-1.483 0-2.359-.808-2.987-2.313-.247-.607-.517-.966-1.034-1.033-.27-.023-.359-.135-.359-.27 0-.27.45-.471.898-.471.652 0 1.213.404 1.797 1.235.45.651.921.943 1.483.943.561 0 .92-.202 1.437-.719.382-.381.674-.718.944-.943"/></svg></a></footer>
 </main>
 
 <script>
