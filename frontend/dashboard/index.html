@@ -9,14 +9,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
 <style>
-/* Dark-navy single column (max 1100px). Hero + 8 county cards, roster-match table with a
+/* Dark-navy single column (max 1100px). Hero + per-county cards, roster-match table with a
    Travis deep-dive callout, a "who we can read" lean chart, then method + links. Dark-first;
    light theme mirrored. Two data series throughout: county (blue) vs SOS (orange). */
 :root {
   color-scheme: dark;
   --bg:#0a1020; --surface:#111a2e; --surface-2:#18243d; --line:#243150;
   --fg:#eaf0fa; --fg-2:#b4c0d6; --muted:#7e8ba3; --accent:#7fbcff;
-  --county:#3987e5; --sos:#d95926; --rep:#d64c4c; --unknown:#6b7790;
+  --county:#3987e5; --sos:#d95926; --rep:#d64c4c; --unknown:#6b7790; --backlog:#f5c518;
   --county-wash:rgba(57,135,229,.14); --sos-wash:rgba(217,89,38,.14);
   --good:#2fb344; --warn:#fab219; --serious:#ec835a; --critical:#d03b3b;
   --font-ui:"Barlow",system-ui,-apple-system,"Segoe UI",sans-serif;
@@ -28,7 +28,7 @@
     color-scheme: light;
     --bg:#f3f5f9; --surface:#ffffff; --surface-2:#eaeef5; --line:#d8dee9;
     --fg:#0f1829; --fg-2:#3f4b63; --muted:#6b7690; --accent:#1f5fbf;
-    --county:#2a78d6; --sos:#c44a1e; --rep:#c0392b; --unknown:#8a94a8;
+    --county:#2a78d6; --sos:#c44a1e; --rep:#c0392b; --unknown:#8a94a8; --backlog:#8a5a00;
     --county-wash:rgba(42,120,214,.10); --sos-wash:rgba(196,74,30,.10);
   }
 }
@@ -36,7 +36,7 @@
   color-scheme: light;
   --bg:#f3f5f9; --surface:#ffffff; --surface-2:#eaeef5; --line:#d8dee9;
   --fg:#0f1829; --fg-2:#3f4b63; --muted:#6b7690; --accent:#1f5fbf;
-  --county:#2a78d6; --sos:#c44a1e; --rep:#c0392b; --unknown:#8a94a8;
+  --county:#2a78d6; --sos:#c44a1e; --rep:#c0392b; --unknown:#8a94a8; --backlog:#8a5a00;
   --county-wash:rgba(42,120,214,.10); --sos-wash:rgba(196,74,30,.10);
 }
 * { box-sizing: border-box; }
@@ -73,7 +73,7 @@ section { padding-block:30px; border-top:1px solid var(--line); }
 .legend { display:flex; flex-wrap:wrap; gap:8px 16px; margin-top:20px; }
 .key { display:inline-flex; align-items:center; gap:6px; font-size:12.5px; color:var(--fg-2); }
 .key i { width:12px; height:12px; border-radius:3px; display:inline-block; flex:none; }
-.key i.county { background:var(--county); } .key i.sos { background:var(--sos); }
+.key i.county { background:var(--county); } .key i.sos { background:var(--sos); } .key i.backlog { background:var(--backlog); }
 .key i.dem { background:var(--county); } .key i.rep { background:var(--rep); } .key i.unk { background:var(--unknown); }
 
 .cards { display:grid; grid-template-columns:repeat(auto-fill,minmax(250px,1fr)); gap:14px; }
@@ -84,13 +84,18 @@ section { padding-block:30px; border-top:1px solid var(--line); }
 .card .figs { display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; }
 .card .fig .v { font-size:17px; font-weight:600; line-height:1.1; }
 .card .fig .l { font-size:11px; color:var(--muted); margin-top:2px; }
+.card .src { font-family:var(--font-mono); font-size:10px; letter-spacing:.06em; text-transform:uppercase; color:var(--fg-2); display:flex; align-items:center; gap:6px; margin:2px 0 -4px; }
+.card .src i { width:9px; height:9px; border-radius:2px; flex:none; }
+.card .src.sos i { background:var(--sos); } .card .src.county i { background:var(--county); }
+.card .srcgrp + .srcgrp { margin-top:4px; border-top:1px solid var(--line); padding-top:9px; }
+.card .srcgrp { display:grid; gap:6px; }
 .card .mrow { display:flex; align-items:center; gap:7px; font-size:12px; color:var(--fg-2); }
 .card .mrow .bar { flex:1; height:7px; border-radius:4px; background:var(--surface-2); overflow:hidden; display:flex; min-width:0; }
 .card .mrow .bar i { height:100%; display:block; }
-.card .mrow .bar i.both { background:var(--good); } .card .mrow .bar i.so { background:var(--sos); } .card .mrow .bar i.co { background:var(--county); }
+.card .mrow .bar i.both { background:var(--good); } .card .mrow .bar i.so { background:var(--sos); } .card .mrow .bar i.co { background:var(--backlog); }
 .card .mbd { font-size:12px; color:var(--fg-2); line-height:1.5; display:grid; gap:2px; border-top:1px solid var(--line); padding-top:9px; }
 .card .mbd .mb b { font-weight:700; font-variant-numeric:tabular-nums; color:var(--fg); margin-right:5px; }
-.card .mbd .mb.both b { color:var(--good); } .card .mbd .mb.so b { color:var(--sos); } .card .mbd .mb.co b { color:var(--county); }
+.card .mbd .mb.both b { color:var(--good); } .card .mbd .mb.so b { color:var(--sos); } .card .mbd .mb.co b { color:var(--backlog); }
 .card .def { font-family:var(--font-mono); font-size:10.5px; color:var(--muted); line-height:1.45; border-top:1px solid var(--line); padding-top:8px; }
 .card.noroster .def { color:var(--serious); }
 
@@ -101,7 +106,7 @@ thead th:first-child, tbody td:first-child { text-align:left; }
 tbody td { padding:9px 12px; border-bottom:1px solid var(--line); white-space:nowrap; text-align:right; font-variant-numeric:tabular-nums; }
 tbody tr:last-child td { border-bottom:0; }
 tbody tr:hover { background:var(--surface-2); }
-td.so { color:var(--sos); font-weight:600; } td.co { color:var(--muted); }
+td.so { color:var(--sos); font-weight:600; } td.co { color:var(--backlog); font-weight:600; }
 .callout { background:var(--surface); border:1px solid var(--line); border-left:3px solid var(--accent); border-radius:var(--radius); padding:16px 18px; margin-top:16px; }
 .callout h3 { margin:0 0 8px; font-size:16px; }
 .callout .big { display:flex; flex-wrap:wrap; gap:18px 26px; margin:12px 0 4px; }
@@ -170,8 +175,8 @@ footer .footid a:hover { text-decoration:underline; }
 <div class="topbar"><div class="wrap">
   <div class="brand">LONE STAR <b>LEDGER</b></div>
   <nav class="nav" aria-label="Sections">
-    <a href="#counties">Counties</a><a href="#gap">Gaps</a><a href="#revisions">Revisions</a><a href="#match">Voter by voter</a><a href="#lean">Party lean</a>
-    <a href="statewide.html">All 254 counties</a><a href="discovered.html">What we discovered</a><a href="churn.html">Registration churn</a><a href="mail.html">Mail ballots</a>
+    <a href="#counties">Counties</a><a href="#gap">Backlog</a><a href="#revisions">Revisions</a><a href="#match">Voter by voter</a><a href="#lean">Party lean</a>
+    <a href="statewide.html">All 254 counties</a><a href="discovered.html">What we discovered</a><a href="churn.html">Registration churn</a><a href="mail.html">Mail ballots</a><a href="state_internal.html">State vs. itself</a><a href="leakage.html">Voted here, counted there</a>
   </nav>
 </div></div>
 
@@ -179,20 +184,20 @@ footer .footid a:hover { text-decoration:underline; }
   <header class="hero" id="top">
     <div class="eyebrow">November 3, 2026 general election · early voting Oct 19–30 · mail from Oct 14</div>
     <h1>Voter Counts: Counties vs. Secretary of State</h1>
-    <p class="lede">We selected eight Texas counties that publish their own early-vote totals. The Secretary of State publishes a second set of early-vote totals for the same counties. We fetch both early-vote totals every 15 minutes, keep an archive of these early-vote totals, and match them voter by voter so we can see exactly where and when they disagree. The two sides <i><b>mostly</b></i> agree. This page shows the differences that remain, and the reasons why these differences exist.</p>
+    <p class="lede"><span id="heroN">12</span> Texas counties publish their own early-vote rosters. The Secretary of State publishes a second set of figures for the same counties. We fetch both every 15 minutes, keep every version, and match them <b>voter by voter</b> — so we can see, name by name, which early voters a county has already recorded that the state's data has not caught up to. That difference is a <b>backlog</b>, the downstream of failures in Texas' election systems that were flagged two years ago and never fixed. We don't predict whether it clears. We show it as it stands, and the final answer will come only when the state declares its backlog processed and we run the numbers then — a fact, not a forecast.</p>
     <div class="tiles" id="tiles"></div>
     <div class="updated" id="updated"></div>
   </header>
 
   <section id="counties">
     <div class="sec-head">
-      <div class="eyebrow">01 · The eight counties</div>
+      <div class="eyebrow">01 · The counties</div>
       <h2 id="sec01title">Early Votes by County</h2>
-      <p>Registered voters and the Secretary of State's cumulative early-vote counts for all 8 counties. The bar shows how the county's own voter roster lines up with the state's roster: voters on both lists, voters only the state lists, and voters only the county lists.</p>
+      <p>Registered voters and the Secretary of State's cumulative early-vote counts for every county we match. The bar shows how the county's own voter roster lines up with the state's roster: voters on <b>both</b> lists, voters the <b>state</b> lists but the county does not, and voters the <b>county</b> has recorded that the state has not yet matched — the <b style="color:var(--backlog)">backlog</b>.</p>
       <div class="legend">
         <span class="key"><i class="both" style="background:var(--good)"></i>On both rosters</span>
         <span class="key"><i class="sos"></i>State only</span>
-        <span class="key"><i class="county"></i>County only</span>
+        <span class="key"><i class="backlog"></i>County only (backlog)</span>
       </div>
     </div>
     <div class="cards" id="cards"></div>
@@ -200,23 +205,32 @@ footer .footid a:hover { text-decoration:underline; }
 
   <section id="gap">
     <div class="sec-head">
-      <div class="eyebrow">02 · Gap by day</div>
-      <h2>Gaps in the Voter Data</h2>
-      <p>One panel per county, on a shared scale. A bar above the line means the county reports more than the state for that day, which is normal while the state catches up. A past day that keeps changing is the thing to watch. Two counties publish no dated roster, so they show only the state's figures. Hover any bar for the exact spread.</p>
+      <div class="eyebrow">02 · The backlog</div>
+      <h2>The Backlog, Over Time</h2>
+      <p>The <b style="color:var(--backlog)">backlog</b> is every early voter a county has already recorded on its own roster that the state's data has not matched yet, summed across all matched counties, plotted at each hourly snapshot since we began tracking. Each evening a county posts a fresh early-vote day and the line jumps; over the following day the state matches those voters and it falls. We are finding that county voters in the backlog <i>do</i> eventually appear in the state's data — but this is not the whole backlog, and whether the line reaches zero is a question only the next few days can answer. We make no prediction: early voting closed Oct 30, so from here no new days are added, and the line now shows whether the state drains what remains.</p>
+      <p class="revcap" style="margin:2px 0 0">Collin, Denton and Randall joined the voter-by-voter match on Oct 30, so the line steps up that day — that is counties added, not backlog grown. Watch the trend from the close of early voting forward.</p>
+    </div>
+    <figure id="backlogFig" style="margin:14px 0 6px">
+      <div id="backlogChart"><div class="na" style="color:var(--muted);font-family:var(--font-mono);font-size:12px;padding:16px 2px">Loading backlog…</div></div>
+    </figure>
+    <div class="sec-head" style="margin-top:22px">
+      <div class="eyebrow">02b · Gap by day</div>
+      <h3 style="font-size:19px;margin:4px 0 6px;font-weight:600">The same gap, day by day</h3>
+      <p>One panel per county, <b>each scaled to its own range</b> (the scale is noted in each heading) so small counties are readable next to Harris and Dallas. A bar <b style="color:var(--backlog)">above</b> the line means the county has recorded more early voters than the state has matched for that day — the backlog for that day. A bar below means the state has matched a voter the county file has not. A past day that keeps moving is the thing to watch. Counties that publish no dated roster for the selected view are left out. Hover any bar for the exact spread.</p>
     </div>
     <div class="controls">
       <div class="seg" role="group" aria-label="Metric" id="gapSeg">
         <button type="button" data-m="ip" aria-pressed="true">In person</button>
         <button type="button" data-m="mail" aria-pressed="false">Mail</button>
       </div>
-      <div class="legend" style="margin-top:0"><span class="key"><i class="county"></i>County higher</span><span class="key"><i class="sos"></i>State higher</span></div>
+      <div class="legend" style="margin-top:0"><span class="key"><i class="backlog"></i>County higher (backlog)</span><span class="key"><i class="sos"></i>State higher</span></div>
     </div>
     <div class="multiples" id="gapGrid"><div class="panel"><div class="na">Loading daily series…</div></div></div>
   </section>
 
   <section id="revisions">
     <div class="sec-head">
-      <div class="eyebrow">02b · Revisions</div>
+      <div class="eyebrow">02c · Revisions</div>
       <h2>Voter Data Revisions: Tracking the State's Changes</h2>
       <p>The state revises earlier days as late ballots are processed. When we detect these revisions in the voter-data counts, we log it. This is built only from changes captured since collection began, so it fills out over time.</p>
     </div>
@@ -235,7 +249,7 @@ footer .footid a:hover { text-decoration:underline; }
     <div class="sec-head">
       <div class="eyebrow">03 · Roster match</div>
       <h2>Voter by Voter: A Closer Look at the Gap</h2>
-      <p>The state says they voted — the county has no such record. We pulled the "state only" thread in Travis County because it is the one county where we have the full registration file with voting history. We took every voter the state listed as voting in person that Travis's own roster did not, on days the state has finished posting, and looked each one up.</p>
+      <p>The state says they voted — the county has no such record. This is the <b style="color:var(--sos)">state-only</b> direction, and it is the one that matters most: as of Oct 30 the state lists <b>519</b> early voters in Travis that Travis's own roster does not. We pulled this thread in Travis because it is the one county where we hold the full registration file with voting history. Of those 519 we examined the <b>259</b> on in-person days the state has finished posting (the rest are the newest days, where the county simply has not published yet), and looked each one up.</p>
     </div>
     <div class="table-wrap">
       <table id="matchTable">
@@ -244,9 +258,9 @@ footer .footid a:hover { text-decoration:underline; }
       </table>
     </div>
     <div class="callout">
-      <h3>Unexplained Travis Voters: Now Explained</h3>
+      <h3>The 259 Examined, Accounted For</h3>
       <div class="big" id="travisBig"></div>
-      <p>So the group that looks unexplained is, almost entirely, people who registered this year and are voting for the first time, plus a few flagged for an address check. The handful not in the registration file at all are the only names worth a closer look, and that is a short, specific list rather than a vague worry.</p>
+      <p>So the examined group is, in the main, people who registered this year and are voting for the first time, plus a set flagged for an address check who remain eligible. The <b>13</b> not in the registration file at all are the only names that warrant a closer look — a short, specific list rather than a vague worry. We make no claim beyond what the lookup shows; the full picture for all 519 waits on the county finishing its roster and the state finishing the backlog.</p>
     </div>
   </section>
 
@@ -289,6 +303,8 @@ footer .footid a:hover { text-decoration:underline; }
       <a href="technical.html"><b>How we did it →</b><span>The sources, the code, and the method, in detail.</span></a>
       <a href="churn.html"><b>Registration churn →</b><span>All 254 counties' rolls vs. the Oct 5 certified figures.</span></a>
       <a href="mail.html"><b>Mail ballots →</b><span>Received vs. counted, and the gap between them.</span></a>
+      <a href="state_internal.html"><b>The state vs. itself →</b><span>The SOS's own total vs. the names on its own roster.</span></a>
+      <a href="leakage.html"><b>Voted here, counted there →</b><span>Voters the state files under a neighboring county.</span></a>
       <a href="statewide.html"><b>All 254 counties →</b><span>Statewide early-vote totals and turnout.</span></a>
     </div>
   </section>
@@ -308,7 +324,7 @@ const LEAN = [
   {name:"Harris", n:705507, dShareKnown:0.613, known:0.636, noPrimary:256718},
   {name:"Travis", n:323654, dShareKnown:0.773, known:0.728, noPrimary:88093},
 ];
-const TRAVIS = {n:184, reg2026:103, suspense:34, notInFile:4};
+const TRAVIS = {total:519, n:259, reg2026:143, suspense:47, notInFile:13, asOf:"Oct 30"};
 // Friendly, public-facing definition of a "counted vote" for each county (keyed by slug).
 const DEFS = {
   harris:   "In-person: cumulative early-voting roster (check-ins). Mail: ballots returned.",
@@ -347,7 +363,9 @@ function dateLong(s){ const [y,m,d]=s.slice(0,10).split("-").map(Number); return
 
 // Map a data.json county record to the shape the renderers below expect.
 function mapCounty(c){
+  const cbm = c.county_by_method || {};
   return { name:c.name, slug:c.slug, reg:c.registered, ip:c.sos_in_person, mail:c.sos_mail, tot:c.sos_total,
+    cip:cbm["in-person"], cmail:cbm["mail"], ctot:c.roster_county,
     rc:c.has_county_roster ? c.roster_county : 0, rs:c.roster_sos, both:c.both, so:c.sos_only, co:c.county_only,
     noroster:!c.has_county_roster, def:(DEFS[c.slug] || c.definition) };
 }
@@ -357,14 +375,15 @@ function renderTiles(DATA){
   const C = DATA.counties;
   const totEV = C.reduce((s,c)=>s+c.tot,0);
   const withRoster = C.filter(c=>c.rc>0).length;
-  const stateOnly = C.filter(c=>!c.noroster).reduce((s,c)=>s+c.so,0);
+  const backlog = C.filter(c=>!c.noroster).reduce((s,c)=>s+(c.co||0),0);
+  const heroN = document.getElementById("heroN"); if(heroN) heroN.textContent = String(C.length);
   const t = document.getElementById("tiles"); t.replaceChildren();
-  const tile = (v,lbl,sub)=> el("div",{class:"tile"}, el("div",{class:"eyebrow"},lbl), el("div",{class:"v num"},v), el("div",{class:"sub"},sub));
+  const tile = (v,lbl,sub,color)=> el("div",{class:"tile"}, el("div",{class:"eyebrow"},lbl), el("div",{class:"v num", style: color?("color:"+color):""},v), el("div",{class:"sub"},sub));
   t.append(
     tile(String(C.length), "Counties tracked", C.map(c=>c.name).join(", ")),
     tile(compact(totEV), "Early votes counted", "across the "+C.length+" tracked counties, in person and by mail"),
     tile(withRoster+" of "+C.length, "Matched voter by voter", withRoster===C.length ? "all "+C.length+" counties, matched on voter ID (VUID)" : "the counties we can match on voter ID (VUID)"),
-    tile(fmt(stateOnly), "On the state roster only", "votes the state records that a county roster does not — mostly next-day lag"),
+    tile(fmt(backlog), "In the backlog now", "early voters the counties have recorded that the state's data has not matched yet — see the trend below", "var(--backlog)"),
   );
   document.getElementById("sec01title").textContent = "Early Votes by County as of " + centralTitle(DATA.generated);
   const up = document.getElementById("updated"); up.replaceChildren(
@@ -391,14 +410,24 @@ function renderFooterSources(DATA){
 function renderCards(DATA){
   const root = document.getElementById("cards"); root.replaceChildren();
   for (const c of DATA.counties) {
+    const figRow = (ip,mail,tot)=> el("div",{class:"figs"},
+      el("div",{class:"fig"}, el("div",{class:"v num"}, ip==null?"—":fmt(ip)), el("div",{class:"l"},"in person")),
+      el("div",{class:"fig"}, el("div",{class:"v num"}, mail==null?"—":fmt(mail)), el("div",{class:"l"},"by mail")),
+      el("div",{class:"fig"}, el("div",{class:"v num"}, tot==null?"—":fmt(tot)), el("div",{class:"l"},"total")),
+    );
     const card = el("article",{class:"card"+(c.noroster?" noroster":"")},
       el("div",{class:"head"}, el("h3",{},c.name), el("span",{class:"reg num"}, fmt(c.reg)+" registered")),
-      el("div",{class:"figs"},
-        el("div",{class:"fig"}, el("div",{class:"v num"}, fmt(c.ip)), el("div",{class:"l"},"in person")),
-        el("div",{class:"fig"}, el("div",{class:"v num"}, fmt(c.mail)), el("div",{class:"l"},"by mail")),
-        el("div",{class:"fig"}, el("div",{class:"v num"}, fmt(c.tot)), el("div",{class:"l"},"total")),
+      el("div",{class:"srcgrp"},
+        el("div",{class:"src sos"}, el("i",{}), "Secretary of State"),
+        figRow(c.ip, c.mail, c.tot),
       ),
     );
+    if (c.rc>0) {
+      card.append(el("div",{class:"srcgrp"},
+        el("div",{class:"src county"}, el("i",{}), c.name+" County reports"),
+        figRow(c.cip, c.cmail, c.ctot),
+      ));
+    }
     if (c.rc>0) {
       const tot = c.both + c.so + c.co;
       const seg = (w,cls)=>{ const i=el("i",{class:cls}); i.style.width=(100*w/tot)+"%"; return i; };
@@ -410,7 +439,7 @@ function renderCards(DATA){
         el("div",{class:"mbd"},
           line(c.both, "on both the county's and the state's rosters", "both"),
           line(c.so,   "on the state's roster only — the state records a vote the county does not", "so"),
-          line(c.co,   "on the county's roster only — mostly next-day lag and early mail", "co"),
+          line(c.co,   "on the county's roster only — the county has recorded a voter the state has not matched yet (backlog)", "co"),
         ),
       );
     }
@@ -432,7 +461,7 @@ function renderMatch(DATA){
   const big = document.getElementById("travisBig"); big.replaceChildren();
   const item = (n,s,flag)=> el("div",{}, el("div",{class:"n"+(flag?" flag":"")}, fmt(n)), el("div",{class:"s"}, s));
   big.append(
-    item(t.n, "unexplained in-person voters examined"),
+    item(t.n, "state-only in-person voters examined (settled days)"),
     item(t.reg2026, "registered in 2026 (first-time voters)"),
     item(t.suspense, "flagged SUSPENSE (address check; still eligible)"),
     item(t.notInFile, "not in the registration file at all", true),
@@ -500,15 +529,17 @@ fetch("data.json", {cache:"no-store"}).then(r=>r.json()).then(d=>{
     const grid=$("#gapGrid"); grid.replaceChildren();
     const dates=S.dates, i0 = metric==="ip" ? Math.max(0,dates.indexOf(S.evStart)) : 0;
     const K = metric==="ip" ? ["ipCounty","ipSOS"] : ["mailCounty","mailSOS"];
-    let maxAbs=200;
-    for(const slug of S.order){ const c=S.counties[slug]; if(!c[K[0]]) continue; for(let i=i0;i<dates.length;i++){ const g=c[K[0]][i]-c[K[1]][i]; if(isFinite(g)) maxAbs=Math.max(maxAbs,Math.abs(g)); } }
-    const step=niceStep(maxAbs), top=Math.ceil(maxAbs/step)*step;
-    for(const slug of S.order){
+    // Only counties that publish a dated roster for THIS metric; each panel scaled to its own peak.
+    const shown = S.order.filter(slug => S.counties[slug] && S.counties[slug][K[0]]);
+    if(!shown.length){ grid.replaceChildren(Object.assign(document.createElement("div"),{className:"panel",innerHTML:'<div class="na">No county publishes a dated roster for this view.</div>'})); return; }
+    for(const slug of shown){
       const c=S.counties[slug];
+      let maxAbs=50;
+      for(let i=i0;i<dates.length;i++){ const g=c[K[0]][i]-c[K[1]][i]; if(isFinite(g)) maxAbs=Math.max(maxAbs,Math.abs(g)); }
+      const step=niceStep(maxAbs), top=Math.ceil(maxAbs/step)*step;
       const panel=document.createElement("div"); panel.className="panel";
-      panel.innerHTML=`<div class="ph"><h4>${NAMES[slug]}</h4><span>${metric==="ip"?"in person":"mail"}</span></div>`;
+      panel.innerHTML=`<div class="ph"><h4>${NAMES[slug]}</h4><span>${metric==="ip"?"in person":"mail"} · scale ±${compact(top)}</span></div>`;
       grid.append(panel);
-      if(!c[K[0]]){ const na=document.createElement("div"); na.className="na"; na.textContent="No dated county roster — state figures only"; panel.append(na); continue; }
       const W=panel.clientWidth-24||220, H=118, padL=34, padR=6, padT=10, padB=16;
       const s=mk("svg",{viewBox:`0 0 ${W} ${H}`, role:"img", "aria-label":`${NAMES[slug]} gap by day`});
       const n=dates.length-i0, slot=(W-padL-padR)/n, bw=Math.min(15,slot-2);
@@ -517,7 +548,7 @@ fetch("data.json", {cache:"no-store"}).then(r=>r.json()).then(d=>{
       for(let i=i0;i<dates.length;i++){
         const cv=c[K[0]][i], sv=c[K[1]][i], g=cv-sv; if(!isFinite(g)) continue;
         const x=padL+(i-i0)*slot+(slot-bw)/2; const yy=g>=0?y(g):y(0); const h=Math.max(.6,Math.abs(y(g)-y(0)));
-        s.append(mk("rect",{x:x.toFixed(1),y:yy.toFixed(1),width:bw.toFixed(1),height:h.toFixed(1),rx:2,fill:g>=0?"var(--county)":"var(--sos)"}));
+        s.append(mk("rect",{x:x.toFixed(1),y:yy.toFixed(1),width:bw.toFixed(1),height:h.toFixed(1),rx:2,fill:g>=0?"var(--backlog)":"var(--sos)"}));
         const hit=mk("rect",{x:(padL+(i-i0)*slot).toFixed(1),y:padT,width:slot.toFixed(1),height:(H-padT-padB).toFixed(1),fill:"transparent","data-hit":"1"});
         const html=`<b>${NAMES[slug]}</b> · ${dShort(dates[i])}<br>County <b>${fmt(cv)}</b> · State <b>${fmt(sv)}</b><br>Spread <b>${sgn(g)}</b> (county ${g>=0?"higher":"lower"})`;
         hit.addEventListener("mousemove", ev=>showTip(ev,html));
@@ -594,6 +625,72 @@ fetch("data.json", {cache:"no-store"}).then(r=>r.json()).then(d=>{
     const t0=mk("text",{x:padL,y:H-5}); t0.textContent=centralNoZone(pts[0][0]); s.append(t0);
     const t1=mk("text",{x:W-padR,y:H-5,"text-anchor":"end"}); t1.textContent=centralNoZone(pts[pts.length-1][0]); s.append(t1);
     host.append(s);
+  }
+})();
+</script>
+
+<script>
+// ---------- The backlog, over time: one line, statewide county_only by snapshot (backlog.json) ----------
+(function(){
+  const host = document.getElementById("backlogChart");
+  if(!host) return;
+  const NS="http://www.w3.org/2000/svg";
+  const mk=(t,a)=>{const n=document.createElementNS(NS,t);for(const k in a)n.setAttribute(k,a[k]);return n;};
+  const fmt=n=>Math.round(n).toLocaleString("en-US");
+  const compact=n=>{n=Math.abs(n);return n>=1e6?(n/1e6).toFixed(n>=1e7?0:1)+"M":n>=1e3?Math.round(n/1e3)+"K":String(Math.round(n));};
+  const CTDAY=new Intl.DateTimeFormat("en-US",{timeZone:"America/Chicago",month:"short",day:"numeric"});
+  const niceTop=m=>{m=m||1;const step=Math.pow(10,Math.floor(Math.log10(m)))/2;return Math.ceil(m/step)*step;};
+  // shared floating tooltip
+  let tip=null;
+  const showTip=(ev,html)=>{if(!tip){tip=document.createElement("div");tip.className="charttip";document.body.append(tip);}tip.innerHTML=html;tip.style.opacity="1";const w=tip.offsetWidth||220,h=tip.offsetHeight||64,pad=14;let x=ev.clientX+pad,y=ev.clientY+pad;if(x+w>innerWidth-8)x=ev.clientX-pad-w;if(y+h>innerHeight-8)y=ev.clientY-pad-h;tip.style.left=Math.max(8,x)+"px";tip.style.top=Math.max(8,y)+"px";};
+  const hideTip=()=>{if(tip)tip.style.opacity="0";};
+
+  let DATA=null;
+  fetch("backlog.json",{cache:"no-store"}).then(r=>r.json()).then(d=>{DATA=d;draw();})
+    .catch(()=>{host.replaceChildren(Object.assign(document.createElement("div"),{className:"na",style:"color:var(--muted);font-family:var(--font-mono);font-size:12px;padding:16px 2px",textContent:"Backlog trend not available."}));});
+
+  let ro=null;
+  function draw(){
+    if(!DATA||!DATA.points||DATA.points.length<2){
+      host.replaceChildren(Object.assign(document.createElement("div"),{className:"na",style:"color:var(--muted);font-family:var(--font-mono);font-size:12px;padding:16px 2px",textContent:"Not enough snapshots yet to chart the trend."}));
+      return;
+    }
+    const P=DATA.points.map(p=>({t:parseUTC(p.t).getTime(),iso:p.t,total:p.total,by:p.by}));
+    const t0=P[0].t, tN=P[P.length-1].t, span=Math.max(1,tN-t0);
+    const W=Math.max(320,host.clientWidth||680), H=240, padL=48,padR=14,padT=16,padB=30;
+    const innerW=W-padL-padR, innerH=H-padT-padB;
+    const maxV=Math.max(...P.map(p=>p.total)), top=niceTop(maxV);
+    const X=t=>padL+(t-t0)/span*innerW, Y=v=>padT+(1-v/top)*innerH;
+    const svg=mk("svg",{viewBox:`0 0 ${W} ${H}`,role:"img","aria-label":"Statewide early-vote backlog over time",style:"width:100%;height:auto;display:block"});
+    // gridlines + y labels
+    for(let i=0;i<=4;i++){const v=top*i/4,yy=Y(v);svg.append(mk("line",{x1:padL,x2:W-padR,y1:yy.toFixed(1),y2:yy.toFixed(1),stroke:"var(--line)","stroke-width":1,opacity:i===0?.9:.5}));const tx=mk("text",{x:padL-6,y:(yy+3.5).toFixed(1),"text-anchor":"end",fill:"var(--muted)","font-size":10.5,"font-family":"var(--font-mono)"});tx.textContent=i===0?"0":compact(v);svg.append(tx);}
+    // x ticks: first snapshot of each Central day
+    let lastDay="";
+    for(const p of P){const day=CTDAY.format(new Date(p.t));if(day!==lastDay){lastDay=day;const xx=X(p.t);svg.append(mk("line",{x1:xx.toFixed(1),x2:xx.toFixed(1),y1:padT,y2:H-padB,stroke:"var(--line)","stroke-width":1,opacity:.35}));const tx=mk("text",{x:xx.toFixed(1),y:H-padB+16,"text-anchor":"middle",fill:"var(--muted)","font-size":10.5,"font-family":"var(--font-mono)"});tx.textContent=day;svg.append(tx);}}
+    // "early voting closed" marker (7pm CT Oct 30 = 2026-10-31T00:00Z), only once data reaches it
+    const evClose=Date.UTC(2026,9,31,0,0,0);
+    if(evClose>=t0&&evClose<=tN){const xx=X(evClose);svg.append(mk("line",{x1:xx.toFixed(1),x2:xx.toFixed(1),y1:padT,y2:H-padB,stroke:"var(--fg-2)","stroke-width":1.25,"stroke-dasharray":"3 3",opacity:.8}));const tx=mk("text",{x:xx.toFixed(1),y:padT+11,"text-anchor":"middle",fill:"var(--fg-2)","font-size":10,"font-family":"var(--font-mono)"});tx.textContent="EV closed";svg.append(tx);}
+    // area + line
+    const pts=P.map(p=>`${X(p.t).toFixed(1)},${Y(p.total).toFixed(1)}`);
+    const base=Y(0).toFixed(1);
+    svg.append(mk("path",{d:`M${X(P[0].t).toFixed(1)},${base} L`+pts.join(" L ")+` L${X(tN).toFixed(1)},${base} Z`,fill:"var(--backlog)","fill-opacity":.12,stroke:"none"}));
+    svg.append(mk("polyline",{points:pts.join(" "),fill:"none",stroke:"var(--backlog)","stroke-width":2,"stroke-linejoin":"round","stroke-linecap":"round"}));
+    // last-point dot + value label
+    const lp=P[P.length-1];
+    svg.append(mk("circle",{cx:X(lp.t).toFixed(1),cy:Y(lp.total).toFixed(1),r:3.5,fill:"var(--backlog)",stroke:"var(--bg)","stroke-width":1.5}));
+    // crosshair + hover
+    const cross=mk("line",{x1:0,x2:0,y1:padT,y2:H-padB,stroke:"var(--fg-2)","stroke-width":1,opacity:0});
+    const dot=mk("circle",{r:4,fill:"var(--backlog)",stroke:"var(--bg)","stroke-width":1.5,opacity:0});
+    svg.append(cross,dot);
+    const hit=mk("rect",{x:padL,y:padT,width:innerW,height:innerH,fill:"transparent"});svg.append(hit);
+    const nearest=vbx=>{let best=P[0],bd=1e18;for(const p of P){const d=Math.abs(X(p.t)-vbx);if(d<bd){bd=d;best=p;}}return best;};
+    const move=ev=>{const r=svg.getBoundingClientRect(),sc=W/r.width,vbx=(ev.clientX-r.left)*sc;const p=nearest(vbx);const px=X(p.t),py=Y(p.total);cross.setAttribute("x1",px);cross.setAttribute("x2",px);cross.setAttribute("opacity",.6);dot.setAttribute("cx",px);dot.setAttribute("cy",py);dot.setAttribute("opacity",1);
+      const top5=Object.entries(p.by).sort((a,b)=>b[1]-a[1]).slice(0,4).map(([k,v])=>`${(DATA.names&&DATA.names[k])||k} <b>${fmt(v)}</b>`).join(" · ");
+      showTip(ev,`<b>${centralFull(p.iso)}</b><br>Backlog <b style="color:var(--backlog)">${fmt(p.total)}</b> voters<br><span style="color:var(--fg-2)">${top5}</span>`);};
+    hit.addEventListener("mousemove",move);
+    hit.addEventListener("mouseleave",()=>{hideTip();cross.setAttribute("opacity",0);dot.setAttribute("opacity",0);});
+    host.replaceChildren(svg);
+    if(!ro&&"ResizeObserver"in window){ro=new ResizeObserver(()=>{clearTimeout(ro._t);ro._t=setTimeout(draw,120);});ro.observe(host);}
   }
 })();
 </script>

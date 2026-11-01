@@ -77,8 +77,8 @@ footer { color:var(--muted); font-size:12.5px; padding-block:22px; border-top:1p
   <header style="padding-block:34px 6px">
     <div class="eyebrow">A plain-language summary</div>
     <h1>What we discovered</h1>
-    <p class="lede">We compared what eight Texas counties say about early voting with what the state says about the same counties, checking every 15 minutes and keeping every version. Here is what the first ten days show, written for anyone.</p>
-    <p class="meta">Through October 28, 2026 · eight counties · still collecting</p>
+    <p class="lede">We compared what twelve Texas counties say about early voting with what the state says about the same counties, checking every 15 minutes and keeping every version. Here is what early voting showed, written for anyone.</p>
+    <p class="meta">Through October 30, 2026 · twelve counties · still collecting</p>
   </header>
 
   <section class="finding">
@@ -108,14 +108,15 @@ footer { color:var(--muted); font-size:12.5px; padding-block:22px; border-top:1p
   <section class="finding">
     <div class="n">FINDING 4</div>
     <h2>A few voters the state lists that the county does not, and we checked them</h2>
-    <p>Each day a small fraction of a percent of in-person voters show up on the state's list but not on the county's own list. That is the kind of difference worth examining, so in Travis County, where we have the full registration file, we looked up every one of them on days the state had finished posting.</p>
+    <p>How can the state list a voter the county does not? It is the county that checks each voter in and then reports to the state, so for the newest days the state's roster often runs <em>ahead</em> of the county's own published file — the county has reported the voters but has not refreshed the file we download. In Dallas, for example, nearly all of a very large state-only figure is simply the two most recent days the county has not posted yet. The small part worth examining is the set that remains on days the state has finished posting. In Travis County, where we have the full registration file, we looked up every one of those.</p>
+    <p>As of October 30 the state lists <strong>519</strong> early voters in Travis that the county's roster does not. Setting aside the newest, still-unposted days, <strong>259</strong> were on settled in-person days — and here is what they are:</p>
     <div class="figstrip">
-      <div class="f"><div class="v num">184</div><div class="s">unexplained in-person voters examined</div></div>
-      <div class="f"><div class="v num">103</div><div class="s">had just registered in 2026, voting for the first time</div></div>
-      <div class="f"><div class="v num">34</div><div class="s">flagged for an address check, still eligible</div></div>
-      <div class="f"><div class="v flag num">4</div><div class="s">not in the registration file at all</div></div>
+      <div class="f"><div class="v num">259</div><div class="s">state-only in-person voters examined, on settled days</div></div>
+      <div class="f"><div class="v num">143</div><div class="s">had just registered in 2026, voting for the first time</div></div>
+      <div class="f"><div class="v num">47</div><div class="s">flagged for an address check, still eligible</div></div>
+      <div class="f"><div class="v flag num">13</div><div class="s">not in the registration file at all</div></div>
     </div>
-    <p>Almost the whole group turned out to be people registering and voting for the first time, which is why they had no earlier record. Only four were missing from the registration file entirely. Those four are the only names that warrant a closer look, and that is a short, specific list the organizations can hand to the county, not a vague suspicion.</p>
+    <p>Most of the group turned out to be people registering and voting for the first time, which is why they had no earlier record, plus a set flagged for an address check who remain eligible. Only <strong>13</strong> were missing from the registration file entirely. Those are the only names that warrant a closer look — a short, specific list the organizations can hand to the county, not a vague suspicion. This is a different thing from the registration backlog upstream: we are matching people who have <em>voted</em>, and both the county and the state learn who voted from the same county check-in, so the two converge. A failure to load new <em>registrations</em> would show up as eligible voters missing, not as the state holding extra voted records.</p>
   </section>
 
   <section class="finding">
@@ -129,6 +130,19 @@ footer { color:var(--muted); font-size:12.5px; padding-block:22px; border-top:1p
     <p>So a quarter to a third of early voters cannot be assigned a lean at all. Any statement about which way the electorate is tilting can only speak for the voters we are able to classify, and it should always be quoted that way.</p>
   </section>
 
+  <section class="finding">
+    <div class="n">FINDING 6</div>
+    <h2>The state kept rewriting days that were already over — and an independent project saw the same thing</h2>
+    <p>An independent effort, <a href="https://lostvotes.us">lostvotes.us</a>, recorded Dallas County's early-vote numbers on October 23 and found the state had sharply revised days that had already ended. Our own archive did not start until October 27, so we cannot see that first revision happen. But we can check whether it stuck — and whether the state kept going. It did both.</p>
+    <p>For in-person voting on <strong>October 19</strong>, that project's October 23 reading was <strong>77,829</strong>. Our first capture, four days later, was <strong>77,830</strong> — the same number, independently downloaded from a different place on a different schedule. Then we watched it keep moving: by October 31 the state had added <strong>209</strong> more votes to October 19, a day that had been over for nearly two weeks. October 20 behaved identically: <strong>65,066</strong> on both sides, then revised up by <strong>45</strong>.</p>
+    <div class="figstrip">
+      <div class="f"><div class="v num">77,830</div><div class="s">our Oct 27 figure for Oct 19 — vs. 77,829 recorded elsewhere on Oct 23</div></div>
+      <div class="f"><div class="v num">+209</div><div class="s">votes the state later added to Oct 19, days after it ended</div></div>
+      <div class="f"><div class="v num">+45</div><div class="s">votes later added to Oct 20</div></div>
+    </div>
+    <p>Two things come out of this. First, two independent trackers, pulling the state's feed on different days, hold the same figures — which is the strongest check there is that neither is simply wrong. Second, the behavior the other project flagged — the state changing the record of a day long after that day closed — is not a one-time event we missed; it is still happening in our own data, and it is exactly why we keep every version instead of overwriting. We did <em>not</em> see the largest swing they reported (roughly 104,000 down to 77,800 on October 19), because it happened before our archive began; we note that plainly rather than claim a corroboration we cannot make.</p>
+  </section>
+
   <div class="takeaway">
     <h3>The short version</h3>
     <p>Two independent counts of the same election mostly agree. The differences are mostly timing. The real oddities are small, specific, and now written down with their sources, so they can be checked instead of argued. That record is the point.</p>
@@ -139,7 +153,7 @@ footer { color:var(--muted); font-size:12.5px; padding-block:22px; border-top:1p
     <a href="technical.html"><b>How we did it →</b><span>Sources, code, and method in full.</span></a>
   </div>
 
-  <footer>Lone Star Ledger · ledger.precinctlabs.com · figures through October 28, 2026</footer>
+  <footer>Lone Star Ledger · ledger.precinctlabs.com · figures through November 1, 2026</footer>
 </main>
 </body>
 </html>

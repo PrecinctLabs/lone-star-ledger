@@ -103,6 +103,8 @@ def main():
             "sos_total": (s.get("total_in_person_votes_for_election") or 0) + (s.get("total_mail_votes_for_election") or 0),
             "roster_county": m.get("county_vuids"),
             "roster_sos": m.get("sos_vuids"),
+            "county_by_method": m.get("county_by_method"),
+            "sos_by_method": m.get("sos_by_method"),
             "both": m.get("both"),
             "sos_only": m.get("sos_only"),
             "county_only": m.get("county_only"),

@@ -10,3 +10,8 @@ data/inbox/
 data/match/
 data/history/
 data-test/
+
+# Internal / not for the public mirror (never commit these here)
+CLAUDE.md
+context/
+resources/

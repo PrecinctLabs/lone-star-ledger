@@ -1,0 +1,567 @@
+{
+ "generated_utc": "2026-11-01 04:27 UTC",
+ "label": "Voters each county's own roster lists as voting there, whom the Secretary of State credits to a different county's roster (election 53815). 'Filed under' is the SOS's reported county. Visibility is limited to the counties we collect SOS rosters for.",
+ "counties_collected": [
+  "Harris",
+  "Dallas",
+  "Bexar",
+  "Collin",
+  "Denton",
+  "Travis",
+  "Hidalgo",
+  "El Paso",
+  "Cameron",
+  "Hays",
+  "Tarrant",
+  "Randall"
+ ],
+ "statewide": {
+  "county_only": 178384,
+  "leaked_to_other_county": 1298,
+  "not_in_any_roster_we_hold": 177086
+ },
+ "counties": [
+  {
+   "slug": "harris",
+   "name": "Harris",
+   "county_only": 90397,
+   "leaked_to_other_county": 138,
+   "not_in_any_roster_we_hold": 90259,
+   "filed_under": [
+    {
+     "slug": "travis",
+     "name": "Travis",
+     "count": 53
+    },
+    {
+     "slug": "bexar",
+     "name": "Bexar",
+     "count": 29
+    },
+    {
+     "slug": "hays",
+     "name": "Hays",
+     "count": 14
+    },
+    {
+     "slug": "tarrant",
+     "name": "Tarrant",
+     "count": 11
+    },
+    {
+     "slug": "cameron",
+     "name": "Cameron",
+     "count": 11
+    },
+    {
+     "slug": "dallas",
+     "name": "Dallas",
+     "count": 8
+    },
+    {
+     "slug": "denton",
+     "name": "Denton",
+     "count": 6
+    },
+    {
+     "slug": "hidalgo",
+     "name": "Hidalgo",
+     "count": 3
+    },
+    {
+     "slug": "collin",
+     "name": "Collin",
+     "count": 2
+    },
+    {
+     "slug": "el-paso",
+     "name": "El Paso",
+     "count": 1
+    }
+   ]
+  },
+  {
+   "slug": "dallas",
+   "name": "Dallas",
+   "county_only": 10253,
+   "leaked_to_other_county": 131,
+   "not_in_any_roster_we_hold": 10122,
+   "filed_under": [
+    {
+     "slug": "collin",
+     "name": "Collin",
+     "count": 33
+    },
+    {
+     "slug": "denton",
+     "name": "Denton",
+     "count": 29
+    },
+    {
+     "slug": "travis",
+     "name": "Travis",
+     "count": 23
+    },
+    {
+     "slug": "tarrant",
+     "name": "Tarrant",
+     "count": 17
+    },
+    {
+     "slug": "bexar",
+     "name": "Bexar",
+     "count": 14
+    },
+    {
+     "slug": "harris",
+     "name": "Harris",
+     "count": 7
+    },
+    {
+     "slug": "cameron",
+     "name": "Cameron",
+     "count": 4
+    },
+    {
+     "slug": "el-paso",
+     "name": "El Paso",
+     "count": 2
+    },
+    {
+     "slug": "hays",
+     "name": "Hays",
+     "count": 2
+    }
+   ]
+  },
+  {
+   "slug": "bexar",
+   "name": "Bexar",
+   "county_only": 12671,
+   "leaked_to_other_county": 58,
+   "not_in_any_roster_we_hold": 12613,
+   "filed_under": [
+    {
+     "slug": "travis",
+     "name": "Travis",
+     "count": 24
+    },
+    {
+     "slug": "harris",
+     "name": "Harris",
+     "count": 13
+    },
+    {
+     "slug": "hays",
+     "name": "Hays",
+     "count": 12
+    },
+    {
+     "slug": "tarrant",
+     "name": "Tarrant",
+     "count": 3
+    },
+    {
+     "slug": "cameron",
+     "name": "Cameron",
+     "count": 3
+    },
+    {
+     "slug": "collin",
+     "name": "Collin",
+     "count": 1
+    },
+    {
+     "slug": "el-paso",
+     "name": "El Paso",
+     "count": 1
+    },
+    {
+     "slug": "denton",
+     "name": "Denton",
+     "count": 1
+    }
+   ]
+  },
+  {
+   "slug": "collin",
+   "name": "Collin",
+   "county_only": 4699,
+   "leaked_to_other_county": 258,
+   "not_in_any_roster_we_hold": 4441,
+   "filed_under": [
+    {
+     "slug": "dallas",
+     "name": "Dallas",
+     "count": 90
+    },
+    {
+     "slug": "denton",
+     "name": "Denton",
+     "count": 76
+    },
+    {
+     "slug": "travis",
+     "name": "Travis",
+     "count": 38
+    },
+    {
+     "slug": "tarrant",
+     "name": "Tarrant",
+     "count": 23
+    },
+    {
+     "slug": "harris",
+     "name": "Harris",
+     "count": 9
+    },
+    {
+     "slug": "bexar",
+     "name": "Bexar",
+     "count": 8
+    },
+    {
+     "slug": "hays",
+     "name": "Hays",
+     "count": 8
+    },
+    {
+     "slug": "cameron",
+     "name": "Cameron",
+     "count": 4
+    },
+    {
+     "slug": "randall",
+     "name": "Randall",
+     "count": 2
+    }
+   ]
+  },
+  {
+   "slug": "denton",
+   "name": "Denton",
+   "county_only": 3786,
+   "leaked_to_other_county": 161,
+   "not_in_any_roster_we_hold": 3625,
+   "filed_under": [
+    {
+     "slug": "collin",
+     "name": "Collin",
+     "count": 54
+    },
+    {
+     "slug": "dallas",
+     "name": "Dallas",
+     "count": 36
+    },
+    {
+     "slug": "tarrant",
+     "name": "Tarrant",
+     "count": 32
+    },
+    {
+     "slug": "travis",
+     "name": "Travis",
+     "count": 19
+    },
+    {
+     "slug": "hays",
+     "name": "Hays",
+     "count": 10
+    },
+    {
+     "slug": "harris",
+     "name": "Harris",
+     "count": 5
+    },
+    {
+     "slug": "bexar",
+     "name": "Bexar",
+     "count": 3
+    },
+    {
+     "slug": "randall",
+     "name": "Randall",
+     "count": 1
+    },
+    {
+     "slug": "el-paso",
+     "name": "El Paso",
+     "count": 1
+    }
+   ]
+  },
+  {
+   "slug": "travis",
+   "name": "Travis",
+   "county_only": 3658,
+   "leaked_to_other_county": 31,
+   "not_in_any_roster_we_hold": 3627,
+   "filed_under": [
+    {
+     "slug": "bexar",
+     "name": "Bexar",
+     "count": 9
+    },
+    {
+     "slug": "harris",
+     "name": "Harris",
+     "count": 6
+    },
+    {
+     "slug": "hays",
+     "name": "Hays",
+     "count": 6
+    },
+    {
+     "slug": "hidalgo",
+     "name": "Hidalgo",
+     "count": 5
+    },
+    {
+     "slug": "el-paso",
+     "name": "El Paso",
+     "count": 2
+    },
+    {
+     "slug": "dallas",
+     "name": "Dallas",
+     "count": 2
+    },
+    {
+     "slug": "collin",
+     "name": "Collin",
+     "count": 1
+    }
+   ]
+  },
+  {
+   "slug": "hidalgo",
+   "name": "Hidalgo",
+   "county_only": 3313,
+   "leaked_to_other_county": 112,
+   "not_in_any_roster_we_hold": 3201,
+   "filed_under": [
+    {
+     "slug": "bexar",
+     "name": "Bexar",
+     "count": 40
+    },
+    {
+     "slug": "cameron",
+     "name": "Cameron",
+     "count": 29
+    },
+    {
+     "slug": "travis",
+     "name": "Travis",
+     "count": 20
+    },
+    {
+     "slug": "hays",
+     "name": "Hays",
+     "count": 9
+    },
+    {
+     "slug": "harris",
+     "name": "Harris",
+     "count": 7
+    },
+    {
+     "slug": "dallas",
+     "name": "Dallas",
+     "count": 5
+    },
+    {
+     "slug": "tarrant",
+     "name": "Tarrant",
+     "count": 1
+    },
+    {
+     "slug": "denton",
+     "name": "Denton",
+     "count": 1
+    }
+   ]
+  },
+  {
+   "slug": "el-paso",
+   "name": "El Paso",
+   "county_only": 5082,
+   "leaked_to_other_county": 51,
+   "not_in_any_roster_we_hold": 5031,
+   "filed_under": [
+    {
+     "slug": "travis",
+     "name": "Travis",
+     "count": 16
+    },
+    {
+     "slug": "bexar",
+     "name": "Bexar",
+     "count": 15
+    },
+    {
+     "slug": "hays",
+     "name": "Hays",
+     "count": 6
+    },
+    {
+     "slug": "collin",
+     "name": "Collin",
+     "count": 5
+    },
+    {
+     "slug": "harris",
+     "name": "Harris",
+     "count": 3
+    },
+    {
+     "slug": "tarrant",
+     "name": "Tarrant",
+     "count": 3
+    },
+    {
+     "slug": "dallas",
+     "name": "Dallas",
+     "count": 2
+    },
+    {
+     "slug": "randall",
+     "name": "Randall",
+     "count": 1
+    }
+   ]
+  },
+  {
+   "slug": "cameron",
+   "name": "Cameron",
+   "county_only": 54,
+   "leaked_to_other_county": 27,
+   "not_in_any_roster_we_hold": 27,
+   "filed_under": [
+    {
+     "slug": "bexar",
+     "name": "Bexar",
+     "count": 12
+    },
+    {
+     "slug": "hidalgo",
+     "name": "Hidalgo",
+     "count": 11
+    },
+    {
+     "slug": "hays",
+     "name": "Hays",
+     "count": 3
+    },
+    {
+     "slug": "collin",
+     "name": "Collin",
+     "count": 1
+    }
+   ]
+  },
+  {
+   "slug": "hays",
+   "name": "Hays",
+   "county_only": 2634,
+   "leaked_to_other_county": 20,
+   "not_in_any_roster_we_hold": 2614,
+   "filed_under": [
+    {
+     "slug": "travis",
+     "name": "Travis",
+     "count": 11
+    },
+    {
+     "slug": "bexar",
+     "name": "Bexar",
+     "count": 5
+    },
+    {
+     "slug": "harris",
+     "name": "Harris",
+     "count": 2
+    },
+    {
+     "slug": "denton",
+     "name": "Denton",
+     "count": 1
+    },
+    {
+     "slug": "collin",
+     "name": "Collin",
+     "count": 1
+    }
+   ]
+  },
+  {
+   "slug": "tarrant",
+   "name": "Tarrant",
+   "county_only": 41737,
+   "leaked_to_other_county": 311,
+   "not_in_any_roster_we_hold": 41426,
+   "filed_under": [
+    {
+     "slug": "dallas",
+     "name": "Dallas",
+     "count": 103
+    },
+    {
+     "slug": "denton",
+     "name": "Denton",
+     "count": 92
+    },
+    {
+     "slug": "travis",
+     "name": "Travis",
+     "count": 32
+    },
+    {
+     "slug": "collin",
+     "name": "Collin",
+     "count": 22
+    },
+    {
+     "slug": "bexar",
+     "name": "Bexar",
+     "count": 21
+    },
+    {
+     "slug": "harris",
+     "name": "Harris",
+     "count": 14
+    },
+    {
+     "slug": "hays",
+     "name": "Hays",
+     "count": 13
+    },
+    {
+     "slug": "el-paso",
+     "name": "El Paso",
+     "count": 10
+    },
+    {
+     "slug": "hidalgo",
+     "name": "Hidalgo",
+     "count": 3
+    },
+    {
+     "slug": "cameron",
+     "name": "Cameron",
+     "count": 1
+    }
+   ]
+  },
+  {
+   "slug": "randall",
+   "name": "Randall",
+   "county_only": 100,
+   "leaked_to_other_county": 0,
+   "not_in_any_roster_we_hold": 100,
+   "filed_under": []
+  }
+ ]
+}

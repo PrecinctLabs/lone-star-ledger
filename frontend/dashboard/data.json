@@ -1,20 +1,28 @@
 {
- "generated_utc": "2026-10-30 03:34 UTC",
- "sos_as_of": "2026-10-29",
+ "generated_utc": "2026-11-01 04:38 UTC",
+ "sos_as_of": "2026-10-30",
  "election": "November 3, 2026 General Election (SOS election 53815)",
  "counties": [
   {
    "slug": "harris",
    "name": "Harris",
    "registered": 2746177,
-   "sos_in_person": 797855,
-   "sos_mail": 37663,
-   "sos_total": 835518,
-   "roster_county": 862068,
-   "roster_sos": 819606,
-   "both": 814691,
-   "sos_only": 4915,
-   "county_only": 47377,
+   "sos_in_person": 967601,
+   "sos_mail": 39020,
+   "sos_total": 1006621,
+   "roster_county": 1080240,
+   "roster_sos": 990318,
+   "county_by_method": {
+    "in-person": 1036349,
+    "mail": 43891
+   },
+   "sos_by_method": {
+    "mail": 22352,
+    "in-person": 967966
+   },
+   "both": 989843,
+   "sos_only": 475,
+   "county_only": 90397,
    "definition": "in-person: unofficial cumulative EV roster (check-ins); mail: unofficial BBM roster (ballots returned)",
    "has_county_roster": true,
    "lean": null,
@@ -24,14 +32,22 @@
    "slug": "dallas",
    "name": "Dallas",
    "registered": 1493955,
-   "sos_in_person": 487685,
-   "sos_mail": 15284,
-   "sos_total": 502969,
-   "roster_county": 463424,
-   "roster_sos": 496856,
-   "both": 453495,
-   "sos_only": 43361,
-   "county_only": 9929,
+   "sos_in_person": 606707,
+   "sos_mail": 16679,
+   "sos_total": 623386,
+   "roster_county": 465075,
+   "roster_sos": 617442,
+   "county_by_method": {
+    "in-person": 445058,
+    "mail": 20017
+   },
+   "sos_by_method": {
+    "mail": 10511,
+    "in-person": 606931
+   },
+   "both": 454822,
+   "sos_only": 162620,
+   "county_only": 10253,
    "definition": "in-person: EV turnout details report (DATE VOTED); mail: mail ballot returns report (Return Date)",
    "has_county_roster": true,
    "lean": null,
@@ -41,15 +57,73 @@
    "slug": "bexar",
    "name": "Bexar",
    "registered": 1325780,
-   "sos_in_person": 410050,
-   "sos_mail": 22836,
-   "sos_total": 432886,
-   "roster_county": 434186,
-   "roster_sos": 423711,
-   "both": 421595,
-   "sos_only": 2116,
-   "county_only": 12591,
+   "sos_in_person": 501684,
+   "sos_mail": 23642,
+   "sos_total": 525326,
+   "roster_county": 527361,
+   "roster_sos": 516154,
+   "county_by_method": {
+    "in-person": 502508,
+    "mail": 24853
+   },
+   "sos_by_method": {
+    "mail": 14471,
+    "in-person": 501683
+   },
+   "both": 514690,
+   "sos_only": 1464,
+   "county_only": 12671,
    "definition": "in-person: daily Early-Vote-Ballots roster (check-ins; no per-row date); mail: daily Received-Mail-Ballots roster (ballots received; elections.bexar.gov DocumentCenter folder 245)",
+   "has_county_roster": true,
+   "lean": null,
+   "regcheck": null
+  },
+  {
+   "slug": "collin",
+   "name": "Collin",
+   "registered": 788729,
+   "sos_in_person": 372259,
+   "sos_mail": 8286,
+   "sos_total": 380545,
+   "roster_county": 337425,
+   "roster_sos": 378457,
+   "county_by_method": {
+    "in-person": 328457,
+    "mail": 8968
+   },
+   "sos_by_method": {
+    "mail": 6816,
+    "in-person": 371641
+   },
+   "both": 332726,
+   "sos_only": 45731,
+   "county_only": 4699,
+   "definition": "in-person: cumulative early-voting roster (CertificateNumber = VUID, VoteDate per-row); mail: cumulative absentee-returns roster (VUID, ReceivedDate = ballots received); collincountytx.gov/elections/rosters",
+   "has_county_roster": true,
+   "lean": null,
+   "regcheck": null
+  },
+  {
+   "slug": "denton",
+   "name": "Denton",
+   "registered": 688032,
+   "sos_in_person": 317691,
+   "sos_mail": 6815,
+   "sos_total": 324506,
+   "roster_county": 326343,
+   "roster_sos": 323204,
+   "county_by_method": {
+    "in-person": 318817,
+    "mail": 7526
+   },
+   "sos_by_method": {
+    "mail": 5530,
+    "in-person": 317674
+   },
+   "both": 322557,
+   "sos_only": 647,
+   "county_only": 3786,
+   "definition": "in-person: cumulative Early-Voting-Roster (State ID = VUID, SOS-verified 99.8%; check-in Time only, no per-row vote date); mail: Returned_Mail_Roster (SOS_Vuid, Return Date = ballots returned); votedenton.gov/early-voting-election-day-rosters (via prod box)",
    "has_county_roster": true,
    "lean": null,
    "regcheck": null
@@ -58,14 +132,22 @@
    "slug": "travis",
    "name": "Travis",
    "registered": 945505,
-   "sos_in_person": 353096,
-   "sos_mail": 15411,
-   "sos_total": 368507,
-   "roster_county": 358501,
-   "roster_sos": 355937,
-   "both": 354941,
-   "sos_only": 996,
-   "county_only": 3560,
+   "sos_in_person": 437420,
+   "sos_mail": 16222,
+   "sos_total": 453642,
+   "roster_county": 444133,
+   "roster_sos": 441069,
+   "county_by_method": {
+    "mail": 16723,
+    "in-person": 427410
+   },
+   "sos_by_method": {
+    "mail": 13440,
+    "in-person": 427629
+   },
+   "both": 440475,
+   "sos_only": 594,
+   "county_only": 3658,
    "definition": "in-person: daily Early Vote rosters in G26-Voter-Rosters.zip; mail: daily Ballot by Mail rosters (limited ballots have no VUID, not matched)",
    "has_county_roster": true,
    "lean": null,
@@ -75,14 +157,22 @@
    "slug": "hidalgo",
    "name": "Hidalgo",
    "registered": 466208,
-   "sos_in_person": 131995,
-   "sos_mail": 3920,
-   "sos_total": 135915,
-   "roster_county": 136675,
-   "roster_sos": 133919,
-   "both": 133603,
-   "sos_only": 316,
-   "county_only": 3072,
+   "sos_in_person": 161702,
+   "sos_mail": 4197,
+   "sos_total": 165899,
+   "roster_county": 166612,
+   "roster_sos": 163750,
+   "county_by_method": {
+    "in-person": 162274,
+    "mail": 4338
+   },
+   "sos_by_method": {
+    "mail": 2201,
+    "in-person": 161549
+   },
+   "both": 163299,
+   "sos_only": 451,
+   "county_only": 3313,
    "definition": "in-person: cumulative EV-Roster; mail: ABBM-LIST = applications for ballot by mail, not returned ballots",
    "has_county_roster": true,
    "lean": null,
@@ -92,14 +182,22 @@
    "slug": "el-paso",
    "name": "El Paso",
    "registered": 530978,
-   "sos_in_person": 124567,
-   "sos_mail": 6938,
-   "sos_total": 131505,
-   "roster_county": 145258,
-   "roster_sos": 127843,
-   "both": 127810,
-   "sos_only": 33,
-   "county_only": 17448,
+   "sos_in_person": 155534,
+   "sos_mail": 7182,
+   "sos_total": 162716,
+   "roster_county": 164094,
+   "roster_sos": 159054,
+   "county_by_method": {
+    "in-person": 156380,
+    "mail": 7714
+   },
+   "sos_by_method": {
+    "mail": 3522,
+    "in-person": 155532
+   },
+   "both": 159012,
+   "sos_only": 42,
+   "county_only": 5082,
    "definition": "in-person: cumulative Voter_List Ballot_Address DayN; mail: Received_Ballots_Voter_List (received)",
    "has_county_roster": true,
    "lean": null,
@@ -109,14 +207,22 @@
    "slug": "cameron",
    "name": "Cameron",
    "registered": 244070,
-   "sos_in_person": 63181,
-   "sos_mail": 2155,
-   "sos_total": 65336,
-   "roster_county": 70853,
-   "roster_sos": 65334,
-   "both": 64838,
-   "sos_only": 496,
-   "county_only": 6015,
+   "sos_in_person": 77781,
+   "sos_mail": 2246,
+   "sos_total": 80027,
+   "roster_county": 79876,
+   "roster_sos": 80025,
+   "county_by_method": {
+    "in-person": 77640,
+    "mail": 2236
+   },
+   "sos_by_method": {
+    "mail": 2245,
+    "in-person": 77780
+   },
+   "both": 79822,
+   "sos_only": 203,
+   "county_only": 54,
    "definition": "in-person: 01_Cameron_County voter list (CHECK-IN date); mail: MAIL-GN26-Cameron-County-CC list (Ballot Received Date)",
    "has_county_roster": true,
    "lean": null,
@@ -126,15 +232,73 @@
    "slug": "hays",
    "name": "Hays",
    "registered": 203490,
-   "sos_in_person": 79302,
-   "sos_mail": 1305,
-   "sos_total": 80607,
+   "sos_in_person": 96725,
+   "sos_mail": 1328,
+   "sos_total": 98053,
    "roster_county": 80530,
-   "roster_sos": 78011,
+   "roster_sos": 95457,
+   "county_by_method": {
+    "in-person": 77283,
+    "mail": 3247
+   },
+   "sos_by_method": {
+    "mail": 803,
+    "in-person": 94654
+   },
    "both": 77896,
-   "sos_only": 115,
+   "sos_only": 17561,
    "county_only": 2634,
    "definition": "in-person: In-Person Check-ins searchable HTML, EARLY VOTED check-ins (item 5454, via the user's Chrome); mail: Absentee Ballots Received list (item 5414, received date)",
+   "has_county_roster": true,
+   "lean": null,
+   "regcheck": null
+  },
+  {
+   "slug": "tarrant",
+   "name": "Tarrant",
+   "registered": 1228367,
+   "sos_in_person": 536720,
+   "sos_mail": 18671,
+   "sos_total": 555391,
+   "roster_county": 593665,
+   "roster_sos": 552282,
+   "county_by_method": {
+    "in-person": 571899,
+    "mail": 21766
+   },
+   "sos_by_method": {
+    "mail": 14343,
+    "in-person": 537939
+   },
+   "both": 551928,
+   "sos_only": 354,
+   "county_only": 41737,
+   "definition": "in-person: Early Voting in-person roster (SOS Voter ID; no per-row date); mail: Absentee returned-ballot roster (Return Date)",
+   "has_county_roster": true,
+   "lean": null,
+   "regcheck": null
+  },
+  {
+   "slug": "randall",
+   "name": "Randall",
+   "registered": 102715,
+   "sos_in_person": 39950,
+   "sos_mail": 2054,
+   "sos_total": 42004,
+   "roster_county": 41913,
+   "roster_sos": 41996,
+   "county_by_method": {
+    "in-person": 39780,
+    "mail": 2133
+   },
+   "sos_by_method": {
+    "mail": 2046,
+    "in-person": 39950
+   },
+   "both": 41813,
+   "sos_only": 183,
+   "county_only": 100,
+   "definition": "in-person: Early-Voting-Roster PDF (State ID = VUID, SOS-verified 99.6%; Time = per-row vote datetime); mail: Mail-Ballot-Roster PDF (VUID, Ballot Received Date); randallcounty.gov DocumentCenter (stable View ids, content replaced daily)",
    "has_county_roster": true,
    "lean": null,
    "regcheck": null
@@ -144,47 +308,67 @@
   {
    "key": "sos",
    "name": "Secretary of State",
-   "last_changed": "2026-10-30T01:15:15+00:00"
+   "last_changed": "2026-11-01T01:45:16+00:00"
   },
   {
    "key": "harris",
    "name": "Harris",
-   "last_changed": "2026-10-30T02:02:28+00:00"
+   "last_changed": "2026-10-31T15:04:00+00:00"
   },
   {
    "key": "dallas",
    "name": "Dallas",
-   "last_changed": "2026-10-29T04:45:30+00:00"
+   "last_changed": "2026-10-31T07:04:46+00:00"
   },
   {
    "key": "bexar",
    "name": "Bexar",
-   "last_changed": "2026-10-30T01:15:19+00:00"
+   "last_changed": "2026-10-31T23:05:47+00:00"
+  },
+  {
+   "key": "collin",
+   "name": "Collin",
+   "last_changed": "2026-10-31T02:34:45+00:00"
+  },
+  {
+   "key": "denton",
+   "name": "Denton",
+   "last_changed": "2026-10-31T01:46:08+00:00"
   },
   {
    "key": "travis",
    "name": "Travis",
-   "last_changed": "2026-10-29T20:32:30+00:00"
+   "last_changed": "2026-10-31T07:15:24+00:00"
   },
   {
    "key": "hidalgo",
    "name": "Hidalgo",
-   "last_changed": "2026-10-30T00:32:44+00:00"
+   "last_changed": "2026-10-31T15:04:49+00:00"
   },
   {
    "key": "el-paso",
    "name": "El Paso",
-   "last_changed": "2026-10-30T02:45:52+00:00"
+   "last_changed": "2026-10-31T17:34:16+00:00"
   },
   {
    "key": "cameron",
    "name": "Cameron",
-   "last_changed": "2026-10-30T01:45:52+00:00"
+   "last_changed": "2026-10-31T03:05:16+00:00"
   },
   {
    "key": "hays",
    "name": "Hays",
    "last_changed": "2026-10-29T21:06:57+00:00"
+  },
+  {
+   "key": "tarrant",
+   "name": "Tarrant",
+   "last_changed": "2026-11-01T00:10:54+00:00"
+  },
+  {
+   "key": "randall",
+   "name": "Randall",
+   "last_changed": "2026-10-31T05:05:38+00:00"
   }
  ]
 }

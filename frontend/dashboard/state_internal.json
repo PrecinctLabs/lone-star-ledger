@@ -1,0 +1,456 @@
+{
+ "generated_utc": "2026-11-01 04:39 UTC",
+ "label": "The Secretary of State's own in-person early-vote TOTAL for each county vs. the number of distinct voters the state's OWN roster names for that county (election 53815). Both figures are the state's; the gap is the state against itself.",
+ "statewide": {
+  "totals_page": 4271774,
+  "state_list": 4260928,
+  "gap": 10846,
+  "gap_pct": 0.25
+ },
+ "counties": [
+  {
+   "slug": "harris",
+   "name": "Harris",
+   "sampled": false,
+   "totals_page": 967601,
+   "state_list": 967966,
+   "gap": -365,
+   "gap_pct": -0.04,
+   "series": [
+    {
+     "date": "2026-10-28",
+     "totals_page": 703285,
+     "state_list": 703759,
+     "gap": -474
+    },
+    {
+     "date": "2026-10-29",
+     "totals_page": 775635,
+     "state_list": 776202,
+     "gap": -567
+    },
+    {
+     "date": "2026-10-30",
+     "totals_page": 861077,
+     "state_list": 861677,
+     "gap": -600
+    },
+    {
+     "date": "2026-10-31",
+     "totals_page": 953815,
+     "state_list": 954584,
+     "gap": -769
+    },
+    {
+     "date": "2026-11-01",
+     "totals_page": 967601,
+     "state_list": 967966,
+     "gap": -365
+    }
+   ]
+  },
+  {
+   "slug": "dallas",
+   "name": "Dallas",
+   "sampled": false,
+   "totals_page": 606707,
+   "state_list": 606931,
+   "gap": -224,
+   "gap_pct": -0.04,
+   "series": [
+    {
+     "date": "2026-10-28",
+     "totals_page": 444736,
+     "state_list": 444727,
+     "gap": 9
+    },
+    {
+     "date": "2026-10-29",
+     "totals_page": 487685,
+     "state_list": 487676,
+     "gap": 9
+    },
+    {
+     "date": "2026-10-30",
+     "totals_page": 534069,
+     "state_list": 534060,
+     "gap": 9
+    },
+    {
+     "date": "2026-10-31",
+     "totals_page": 586576,
+     "state_list": 586787,
+     "gap": -211
+    },
+    {
+     "date": "2026-11-01",
+     "totals_page": 606707,
+     "state_list": 606931,
+     "gap": -224
+    }
+   ]
+  },
+  {
+   "slug": "bexar",
+   "name": "Bexar",
+   "sampled": false,
+   "totals_page": 501684,
+   "state_list": 501683,
+   "gap": 1,
+   "gap_pct": 0.0,
+   "series": [
+    {
+     "date": "2026-10-28",
+     "totals_page": 368747,
+     "state_list": 368746,
+     "gap": 1
+    },
+    {
+     "date": "2026-10-29",
+     "totals_page": 410036,
+     "state_list": 410034,
+     "gap": 2
+    },
+    {
+     "date": "2026-10-30",
+     "totals_page": 450256,
+     "state_list": 450254,
+     "gap": 2
+    },
+    {
+     "date": "2026-10-31",
+     "totals_page": 501681,
+     "state_list": 501680,
+     "gap": 1
+    },
+    {
+     "date": "2026-11-01",
+     "totals_page": 501684,
+     "state_list": 501683,
+     "gap": 1
+    }
+   ]
+  },
+  {
+   "slug": "collin",
+   "name": "Collin",
+   "sampled": false,
+   "totals_page": 372259,
+   "state_list": 371641,
+   "gap": 618,
+   "gap_pct": 0.17,
+   "series": [
+    {
+     "date": "2026-10-30",
+     "totals_page": 331642,
+     "state_list": 331024,
+     "gap": 618
+    },
+    {
+     "date": "2026-10-31",
+     "totals_page": 372253,
+     "state_list": 371635,
+     "gap": 618
+    },
+    {
+     "date": "2026-11-01",
+     "totals_page": 372259,
+     "state_list": 371641,
+     "gap": 618
+    }
+   ]
+  },
+  {
+   "slug": "denton",
+   "name": "Denton",
+   "sampled": false,
+   "totals_page": 317691,
+   "state_list": 317674,
+   "gap": 17,
+   "gap_pct": 0.01,
+   "series": [
+    {
+     "date": "2026-10-30",
+     "totals_page": 281794,
+     "state_list": 281777,
+     "gap": 17
+    },
+    {
+     "date": "2026-10-31",
+     "totals_page": 317688,
+     "state_list": 317671,
+     "gap": 17
+    },
+    {
+     "date": "2026-11-01",
+     "totals_page": 317691,
+     "state_list": 317674,
+     "gap": 17
+    }
+   ]
+  },
+  {
+   "slug": "travis",
+   "name": "Travis",
+   "sampled": false,
+   "totals_page": 437420,
+   "state_list": 427629,
+   "gap": 9791,
+   "gap_pct": 2.24,
+   "series": [
+    {
+     "date": "2026-10-28",
+     "totals_page": 319012,
+     "state_list": 309224,
+     "gap": 9788
+    },
+    {
+     "date": "2026-10-29",
+     "totals_page": 353095,
+     "state_list": 343307,
+     "gap": 9788
+    },
+    {
+     "date": "2026-10-30",
+     "totals_page": 389665,
+     "state_list": 379876,
+     "gap": 9789
+    },
+    {
+     "date": "2026-10-31",
+     "totals_page": 437414,
+     "state_list": 427623,
+     "gap": 9791
+    },
+    {
+     "date": "2026-11-01",
+     "totals_page": 437420,
+     "state_list": 427629,
+     "gap": 9791
+    }
+   ]
+  },
+  {
+   "slug": "hidalgo",
+   "name": "Hidalgo",
+   "sampled": false,
+   "totals_page": 161702,
+   "state_list": 161549,
+   "gap": 153,
+   "gap_pct": 0.09,
+   "series": [
+    {
+     "date": "2026-10-28",
+     "totals_page": 120687,
+     "state_list": 120687,
+     "gap": 0
+    },
+    {
+     "date": "2026-10-29",
+     "totals_page": 131995,
+     "state_list": 131995,
+     "gap": 0
+    },
+    {
+     "date": "2026-10-30",
+     "totals_page": 144253,
+     "state_list": 144253,
+     "gap": 0
+    },
+    {
+     "date": "2026-10-31",
+     "totals_page": 161702,
+     "state_list": 161549,
+     "gap": 153
+    },
+    {
+     "date": "2026-11-01",
+     "totals_page": 161702,
+     "state_list": 161549,
+     "gap": 153
+    }
+   ]
+  },
+  {
+   "slug": "el-paso",
+   "name": "El Paso",
+   "sampled": false,
+   "totals_page": 155534,
+   "state_list": 155532,
+   "gap": 2,
+   "gap_pct": 0.0,
+   "series": [
+    {
+     "date": "2026-10-28",
+     "totals_page": 112278,
+     "state_list": 112276,
+     "gap": 2
+    },
+    {
+     "date": "2026-10-29",
+     "totals_page": 124567,
+     "state_list": 124565,
+     "gap": 2
+    },
+    {
+     "date": "2026-10-30",
+     "totals_page": 137235,
+     "state_list": 137233,
+     "gap": 2
+    },
+    {
+     "date": "2026-10-31",
+     "totals_page": 155533,
+     "state_list": 155531,
+     "gap": 2
+    },
+    {
+     "date": "2026-11-01",
+     "totals_page": 155534,
+     "state_list": 155532,
+     "gap": 2
+    }
+   ]
+  },
+  {
+   "slug": "cameron",
+   "name": "Cameron",
+   "sampled": false,
+   "totals_page": 77781,
+   "state_list": 77780,
+   "gap": 1,
+   "gap_pct": 0.0,
+   "series": [
+    {
+     "date": "2026-10-28",
+     "totals_page": 57711,
+     "state_list": 57710,
+     "gap": 1
+    },
+    {
+     "date": "2026-10-29",
+     "totals_page": 63180,
+     "state_list": 63179,
+     "gap": 1
+    },
+    {
+     "date": "2026-10-30",
+     "totals_page": 69167,
+     "state_list": 69166,
+     "gap": 1
+    },
+    {
+     "date": "2026-10-31",
+     "totals_page": 77779,
+     "state_list": 77778,
+     "gap": 1
+    },
+    {
+     "date": "2026-11-01",
+     "totals_page": 77781,
+     "state_list": 77780,
+     "gap": 1
+    }
+   ]
+  },
+  {
+   "slug": "hays",
+   "name": "Hays",
+   "sampled": true,
+   "totals_page": 96725,
+   "state_list": 94654,
+   "gap": 2071,
+   "gap_pct": 2.14,
+   "series": [
+    {
+     "date": "2026-10-28",
+     "totals_page": 72174,
+     "state_list": 70103,
+     "gap": 2071
+    },
+    {
+     "date": "2026-10-29",
+     "totals_page": 79302,
+     "state_list": 77231,
+     "gap": 2071
+    },
+    {
+     "date": "2026-10-30",
+     "totals_page": 86636,
+     "state_list": 84565,
+     "gap": 2071
+    },
+    {
+     "date": "2026-10-31",
+     "totals_page": 96722,
+     "state_list": 94651,
+     "gap": 2071
+    },
+    {
+     "date": "2026-11-01",
+     "totals_page": 96725,
+     "state_list": 94654,
+     "gap": 2071
+    }
+   ]
+  },
+  {
+   "slug": "tarrant",
+   "name": "Tarrant",
+   "sampled": false,
+   "totals_page": 536720,
+   "state_list": 537939,
+   "gap": -1219,
+   "gap_pct": -0.23,
+   "series": [
+    {
+     "date": "2026-10-30",
+     "totals_page": 506242,
+     "state_list": 506241,
+     "gap": 1
+    },
+    {
+     "date": "2026-10-31",
+     "totals_page": 522593,
+     "state_list": 523417,
+     "gap": -824
+    },
+    {
+     "date": "2026-11-01",
+     "totals_page": 536720,
+     "state_list": 537939,
+     "gap": -1219
+    }
+   ]
+  },
+  {
+   "slug": "randall",
+   "name": "Randall",
+   "sampled": false,
+   "totals_page": 39950,
+   "state_list": 39950,
+   "gap": 0,
+   "gap_pct": 0.0,
+   "series": [
+    {
+     "date": "2026-10-30",
+     "totals_page": 35046,
+     "state_list": 35046,
+     "gap": 0
+    },
+    {
+     "date": "2026-10-31",
+     "totals_page": 39949,
+     "state_list": 39949,
+     "gap": 0
+    },
+    {
+     "date": "2026-11-01",
+     "totals_page": 39950,
+     "state_list": 39950,
+     "gap": 0
+    }
+   ]
+  }
+ ]
+}

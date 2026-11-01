@@ -1,11 +1,11 @@
 {
- "generated_utc": "2026-10-30 03:35 UTC",
+ "generated_utc": "2026-11-01 04:39 UTC",
  "label": "Mail ballots reported RECEIVED by each county vs. COUNTED by the Secretary of State (election 53815). The gap is received-but-not-yet-counted, not a rejection rate.",
  "statewide": {
-  "received": 109765,
-  "counted": 101592,
-  "gap": 8173,
-  "gap_pct": 7.4
+  "received": 159074,
+  "counted": 142145,
+  "gap": 16929,
+  "gap_pct": 10.6
  },
  "counties": [
   {
@@ -14,10 +14,10 @@
    "basis": "ballots returned (BBM roster)",
    "comparable": true,
    "sampled": false,
-   "received": 41089,
-   "counted": 37663,
-   "gap": 3426,
-   "gap_pct": 8.3,
+   "received": 43891,
+   "counted": 39020,
+   "gap": 4871,
+   "gap_pct": 11.1,
    "series": [
     {
      "date": "2026-10-28",
@@ -33,9 +33,21 @@
     },
     {
      "date": "2026-10-30",
-     "received": 41089,
-     "counted": 37663,
-     "gap": 3426
+     "received": 42583,
+     "counted": 39020,
+     "gap": 3563
+    },
+    {
+     "date": "2026-10-31",
+     "received": 43891,
+     "counted": 39020,
+     "gap": 4871
+    },
+    {
+     "date": "2026-11-01",
+     "received": 43891,
+     "counted": 39020,
+     "gap": 4871
     }
    ]
   },
@@ -45,10 +57,10 @@
    "basis": "ballots returned (return date)",
    "comparable": true,
    "sampled": false,
-   "received": 18366,
-   "counted": 15284,
-   "gap": 3082,
-   "gap_pct": 16.8,
+   "received": 20017,
+   "counted": 16679,
+   "gap": 3338,
+   "gap_pct": 16.7,
    "series": [
     {
      "date": "2026-10-28",
@@ -64,9 +76,21 @@
     },
     {
      "date": "2026-10-30",
-     "received": 18366,
-     "counted": 15284,
-     "gap": 3082
+     "received": 19242,
+     "counted": 16154,
+     "gap": 3088
+    },
+    {
+     "date": "2026-10-31",
+     "received": 20017,
+     "counted": 16679,
+     "gap": 3338
+    },
+    {
+     "date": "2026-11-01",
+     "received": 20017,
+     "counted": 16679,
+     "gap": 3338
     }
    ]
   },
@@ -76,10 +100,10 @@
    "basis": "ballots received (daily roster)",
    "comparable": true,
    "sampled": false,
-   "received": 22616,
-   "counted": 22836,
-   "gap": -220,
-   "gap_pct": -1.0,
+   "received": 24853,
+   "counted": 23642,
+   "gap": 1211,
+   "gap_pct": 4.9,
    "series": [
     {
      "date": "2026-10-28",
@@ -95,9 +119,83 @@
     },
     {
      "date": "2026-10-30",
-     "received": 22616,
-     "counted": 22836,
-     "gap": -220
+     "received": 23650,
+     "counted": 23469,
+     "gap": 181
+    },
+    {
+     "date": "2026-10-31",
+     "received": 24853,
+     "counted": 23642,
+     "gap": 1211
+    },
+    {
+     "date": "2026-11-01",
+     "received": 24853,
+     "counted": 23642,
+     "gap": 1211
+    }
+   ]
+  },
+  {
+   "slug": "collin",
+   "name": "Collin",
+   "basis": "ballots received (received date)",
+   "comparable": true,
+   "sampled": false,
+   "received": 8968,
+   "counted": 8286,
+   "gap": 682,
+   "gap_pct": 7.6,
+   "series": [
+    {
+     "date": "2026-10-30",
+     "received": 8212,
+     "counted": 7872,
+     "gap": 340
+    },
+    {
+     "date": "2026-10-31",
+     "received": 8968,
+     "counted": 8286,
+     "gap": 682
+    },
+    {
+     "date": "2026-11-01",
+     "received": 8968,
+     "counted": 8286,
+     "gap": 682
+    }
+   ]
+  },
+  {
+   "slug": "denton",
+   "name": "Denton",
+   "basis": "ballots returned (return date)",
+   "comparable": true,
+   "sampled": false,
+   "received": 7526,
+   "counted": 6815,
+   "gap": 711,
+   "gap_pct": 9.4,
+   "series": [
+    {
+     "date": "2026-10-30",
+     "received": 7403,
+     "counted": 6731,
+     "gap": 672
+    },
+    {
+     "date": "2026-10-31",
+     "received": 7526,
+     "counted": 6815,
+     "gap": 711
+    },
+    {
+     "date": "2026-11-01",
+     "received": 7526,
+     "counted": 6815,
+     "gap": 711
     }
    ]
   },
@@ -107,10 +205,10 @@
    "basis": "ballots received (daily roster)",
    "comparable": true,
    "sampled": false,
-   "received": 15358,
-   "counted": 15411,
-   "gap": -53,
-   "gap_pct": -0.3,
+   "received": 16723,
+   "counted": 16222,
+   "gap": 501,
+   "gap_pct": 3.0,
    "series": [
     {
      "date": "2026-10-28",
@@ -126,9 +224,21 @@
     },
     {
      "date": "2026-10-30",
-     "received": 15358,
-     "counted": 15411,
-     "gap": -53
+     "received": 16112,
+     "counted": 15691,
+     "gap": 421
+    },
+    {
+     "date": "2026-10-31",
+     "received": 16723,
+     "counted": 16222,
+     "gap": 501
+    },
+    {
+     "date": "2026-11-01",
+     "received": 16723,
+     "counted": 16222,
+     "gap": 501
     }
    ]
   },
@@ -138,10 +248,10 @@
    "basis": "applications for a ballot \u2014 not returned",
    "comparable": false,
    "sampled": false,
-   "received": 4044,
-   "counted": 3920,
-   "gap": 124,
-   "gap_pct": 3.1,
+   "received": 4338,
+   "counted": 4197,
+   "gap": 141,
+   "gap_pct": 3.3,
    "series": [
     {
      "date": "2026-10-28",
@@ -157,9 +267,21 @@
     },
     {
      "date": "2026-10-30",
-     "received": 4044,
-     "counted": 3920,
-     "gap": 124
+     "received": 4118,
+     "counted": 3986,
+     "gap": 132
+    },
+    {
+     "date": "2026-10-31",
+     "received": 4338,
+     "counted": 4197,
+     "gap": 141
+    },
+    {
+     "date": "2026-11-01",
+     "received": 4338,
+     "counted": 4197,
+     "gap": 141
     }
    ]
   },
@@ -169,10 +291,10 @@
    "basis": "ballots received",
    "comparable": true,
    "sampled": false,
-   "received": 7279,
-   "counted": 6938,
-   "gap": 341,
-   "gap_pct": 4.7,
+   "received": 7714,
+   "counted": 7182,
+   "gap": 532,
+   "gap_pct": 6.9,
    "series": [
     {
      "date": "2026-10-28",
@@ -189,8 +311,20 @@
     {
      "date": "2026-10-30",
      "received": 7279,
-     "counted": 6938,
-     "gap": 341
+     "counted": 7180,
+     "gap": 99
+    },
+    {
+     "date": "2026-10-31",
+     "received": 7714,
+     "counted": 7182,
+     "gap": 532
+    },
+    {
+     "date": "2026-11-01",
+     "received": 7714,
+     "counted": 7182,
+     "gap": 532
     }
    ]
   },
@@ -200,10 +334,10 @@
    "basis": "ballots received",
    "comparable": true,
    "sampled": false,
-   "received": 1810,
-   "counted": 2155,
-   "gap": -345,
-   "gap_pct": -19.1,
+   "received": 2236,
+   "counted": 2246,
+   "gap": -10,
+   "gap_pct": -0.4,
    "series": [
     {
      "date": "2026-10-28",
@@ -220,8 +354,20 @@
     {
      "date": "2026-10-30",
      "received": 1810,
-     "counted": 2155,
-     "gap": -345
+     "counted": 2158,
+     "gap": -348
+    },
+    {
+     "date": "2026-10-31",
+     "received": 2236,
+     "counted": 2246,
+     "gap": -10
+    },
+    {
+     "date": "2026-11-01",
+     "received": 2236,
+     "counted": 2246,
+     "gap": -10
     }
    ]
   },
@@ -232,9 +378,9 @@
    "comparable": true,
    "sampled": true,
    "received": 3247,
-   "counted": 1305,
-   "gap": 1942,
-   "gap_pct": 59.8,
+   "counted": 1328,
+   "gap": 1919,
+   "gap_pct": 59.1,
    "series": [
     {
      "date": "2026-10-28",
@@ -251,8 +397,82 @@
     {
      "date": "2026-10-30",
      "received": 3247,
-     "counted": 1305,
-     "gap": 1942
+     "counted": 1309,
+     "gap": 1938
+    },
+    {
+     "date": "2026-10-31",
+     "received": 3247,
+     "counted": 1309,
+     "gap": 1938
+    },
+    {
+     "date": "2026-11-01",
+     "received": 3247,
+     "counted": 1328,
+     "gap": 1919
+    }
+   ]
+  },
+  {
+   "slug": "tarrant",
+   "name": "Tarrant",
+   "basis": "ballots returned (return date)",
+   "comparable": true,
+   "sampled": false,
+   "received": 21766,
+   "counted": 18671,
+   "gap": 3095,
+   "gap_pct": 14.2,
+   "series": [
+    {
+     "date": "2026-10-30",
+     "received": 20308,
+     "counted": 18297,
+     "gap": 2011
+    },
+    {
+     "date": "2026-10-31",
+     "received": 20950,
+     "counted": 18570,
+     "gap": 2380
+    },
+    {
+     "date": "2026-11-01",
+     "received": 21766,
+     "counted": 18671,
+     "gap": 3095
+    }
+   ]
+  },
+  {
+   "slug": "randall",
+   "name": "Randall",
+   "basis": "ballots received (received date)",
+   "comparable": true,
+   "sampled": false,
+   "received": 2133,
+   "counted": 2054,
+   "gap": 79,
+   "gap_pct": 3.7,
+   "series": [
+    {
+     "date": "2026-10-30",
+     "received": 2091,
+     "counted": 2135,
+     "gap": -44
+    },
+    {
+     "date": "2026-10-31",
+     "received": 2133,
+     "counted": 2054,
+     "gap": 79
+    },
+    {
+     "date": "2026-11-01",
+     "received": 2133,
+     "counted": 2054,
+     "gap": 79
     }
    ]
   }

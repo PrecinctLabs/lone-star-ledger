@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Voted Here, Counted There</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+:root {
+  color-scheme: dark;
+  --bg:#0a1020; --surface:#111a2e; --surface-2:#18243d; --line:#243150;
+  --fg:#eaf0fa; --fg-2:#b9c4d8; --muted:#7e8ba3; --accent:#7fbcff;
+  --await:#fab219; --good:#2fb344;
+  --font-ui:"Barlow",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --font-mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --radius:10px;
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    color-scheme: light;
+    --bg:#f3f5f9; --surface:#ffffff; --surface-2:#eef1f6; --line:#d8dee9;
+    --fg:#0f1829; --fg-2:#39455c; --muted:#6b7690; --accent:#1f5fbf; --await:#b4790f; --good:#1f8f38;
+  }
+}
+:root[data-theme="dark"] { color-scheme: dark; }
+* { box-sizing:border-box; }
+body { margin:0; background:var(--bg); color:var(--fg); font-family:var(--font-ui); font-size:16px; line-height:1.55; -webkit-font-smoothing:antialiased; }
+body::before { content:""; position:fixed; inset:0 0 auto; height:env(safe-area-inset-top,0px); z-index:10; background:var(--bg); }
+a { color:var(--accent); }
+.wrap { max-width:960px; margin:0 auto; padding-left:max(16px,env(safe-area-inset-left,0px)); padding-right:max(16px,env(safe-area-inset-right,0px)); padding-block:0 56px; }
+.topbar { position:sticky; top:env(safe-area-inset-top,0px); z-index:9; background:color-mix(in srgb,var(--bg) 88%,transparent); backdrop-filter:blur(10px); border-bottom:1px solid var(--line); }
+.topbar .in { max-width:960px; margin:0 auto; display:flex; align-items:center; gap:14px; padding:10px max(16px,env(safe-area-inset-left,0px)); }
+.brand { font-family:var(--font-mono); font-weight:600; font-size:13px; letter-spacing:.14em; text-transform:uppercase; text-decoration:none; color:var(--fg); white-space:nowrap; }
+.brand b { color:var(--accent); }
+.topbar a.back { margin-left:auto; font-family:var(--font-mono); font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--fg-2); text-decoration:none; }
+.eyebrow { font-family:var(--font-mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); }
+h1 { font-size:clamp(26px,4.4vw,38px); line-height:1.07; margin:12px 0 8px; font-weight:700; letter-spacing:-.01em; text-wrap:balance; }
+.lede { color:var(--fg-2); font-size:17px; margin:0 0 6px; max-width:72ch; }
+.meta { color:var(--muted); font-size:13px; font-family:var(--font-mono); }
+.callout { border-radius:var(--radius); padding:14px 16px; margin:18px 0 6px; border:1px solid var(--line); border-left:3px solid var(--accent); background:color-mix(in srgb,var(--accent) 8%,var(--surface)); font-size:14.5px; }
+.callout b { color:var(--fg); }
+.tiles { display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,1fr)); gap:12px; margin:18px 0; }
+.tile { background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:14px 16px; }
+.tile .k { font-family:var(--font-mono); font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); }
+.tile .v { font-size:24px; font-weight:700; margin-top:4px; font-variant-numeric:tabular-nums; }
+.tile .s { color:var(--muted); font-size:12px; margin-top:2px; }
+.tbl { overflow-x:auto; border:1px solid var(--line); border-radius:var(--radius); margin:6px 0; }
+table { border-collapse:collapse; width:100%; font-size:13.5px; min-width:720px; }
+th { background:var(--surface-2); text-align:right; font-family:var(--font-mono); font-size:10.5px; letter-spacing:.04em; text-transform:uppercase; color:var(--fg-2); padding:9px 12px; border-bottom:1px solid var(--line); white-space:nowrap; }
+th:first-child, td:first-child { text-align:left; }
+td { padding:9px 12px; border-bottom:1px solid var(--line); color:var(--fg-2); text-align:right; font-variant-numeric:tabular-nums; white-space:nowrap; }
+tr:last-child td { border-bottom:0; }
+td.name { color:var(--fg); font-weight:500; }
+td.leak { color:var(--accent); font-weight:700; }
+td.chips { text-align:left; white-space:normal; min-width:240px; }
+.chip { display:inline-block; font-family:var(--font-mono); font-size:11px; color:var(--fg-2); background:var(--surface-2); border:1px solid var(--line); border-radius:20px; padding:2px 9px; margin:2px 4px 2px 0; }
+.chip b { color:var(--accent); }
+tr.zero td { opacity:.55; }
+.badge { font-family:var(--font-mono); font-size:9.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); border:1px solid var(--line); border-radius:20px; padding:1px 6px; margin-left:6px; }
+.sub { color:var(--muted); font-size:11px; }
+section { border-top:1px solid var(--line); padding-block:22px; margin-top:22px; }
+h2 { font-size:19px; font-weight:600; margin:0 0 10px; }
+p { margin:0 0 12px; color:var(--fg-2); } p strong { color:var(--fg); }
+ul { margin:0 0 12px; padding-left:20px; color:var(--fg-2); } li { margin:0 0 6px; }
+.readmore { display:flex; flex-wrap:wrap; gap:12px; margin-top:22px; }
+.readmore a { display:flex; flex-direction:column; gap:3px; text-decoration:none; background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:14px 16px; flex:1; min-width:200px; }
+.readmore a:hover { border-color:var(--accent); } .readmore a b { color:var(--fg); } .readmore a span { color:var(--muted); font-size:12.5px; }
+footer { color:var(--muted); font-size:12.5px; padding-block:22px; border-top:1px solid var(--line); margin-top:8px; }
+</style>
+</head>
+<body>
+
+<div class="topbar"><div class="in">
+  <a class="brand" href="index.html">LONE STAR <b>LEDGER</b></a>
+  <a class="back" href="index.html">← Dashboard</a>
+</div></div>
+
+<main class="wrap">
+  <header style="padding-block:30px 6px">
+    <div class="eyebrow">Cross-county leakage · where the state files a county's voters</div>
+    <h1>Voted Here, Counted There</h1>
+    <p class="lede">A county's own roster lists someone as having voted there. The Secretary of State agrees that person voted — but files them under a <strong>different</strong> county. We take each county's voters that are missing from the state's list <em>for that county</em>, and find the ones the state did record, just in someone else's column.</p>
+    <p class="meta" id="meta">Loading…</p>
+  </header>
+
+  <div class="callout">
+    <b>These are not lost voters — they are misplaced ones.</b> The county says they voted in the county; the state says they voted, in a neighbor. The pattern is the tell: the leaks run between <b>adjacent</b> counties — the Dallas–Fort Worth counties into each other, the Rio Grande Valley into itself — which is what a genuine mis-filing looks like, not random noise. <b>"Filed under"</b> is the state's reported county, not where the voter is registered.
+  </div>
+
+  <div class="tiles" id="tiles"></div>
+
+  <div class="tbl"><table>
+    <thead><tr>
+      <th>County</th>
+      <th>On its list, not the state's</th>
+      <th>State filed them elsewhere</th>
+      <th>Where the state put them</th>
+      <th>Not in a roster we hold</th>
+    </tr></thead>
+    <tbody id="rows"></tbody>
+  </table></div>
+
+  <section>
+    <h2>How to read this</h2>
+    <ul>
+      <li><strong>On its list, not the state's</strong> is each county's own voters that the state's roster <em>for that county</em> does not carry — the same "county-only" figure as the <a href="index.html">main dashboard</a>. It is mostly the state's list lagging a day behind, and for the big mail counties it is dominated by mail received but not yet posted.</li>
+      <li><strong>State filed them elsewhere</strong> is the subset we can prove is not just lag: the state <em>did</em> record the vote — under another county's roster. That is the hard finding on this page.</li>
+      <li><strong>Where the state put them</strong> lists the receiving counties and how many. Read Dallas's row as "the state filed <em>N</em> Dallas voters under Collin," and so on.</li>
+      <li><strong>Not in a roster we hold</strong> is the remainder: either genuinely absent from the state's lists, or filed under one of the 240-odd counties we do not yet collect voter rosters for. We can't tell those two apart, so we don't claim to.</li>
+      <li><strong>The limit, stated plainly:</strong> we can only <em>see</em> a voter land in another county when that county is one we collect (currently <span id="collected"></span>). Leakage to counties outside that set is invisible to us, so the real cross-county total is at least what is shown here.</li>
+    </ul>
+    <p class="sub" id="src"></p>
+  </section>
+
+  <div class="readmore">
+    <a href="index.html"><b>← Early-vote dashboard</b><span>County vs. SOS early-vote counts.</span></a>
+    <a href="state_internal.html"><b>The state vs. itself →</b><span>The SOS's own total vs. its own roster.</span></a>
+    <a href="technical.html"><b>Methods and code →</b><span>Every source and how it's collected.</span></a>
+  </div>
+
+  <footer>Lone Star Ledger · ledger.precinctlabs.com · each county's own roster set against the SOS per-county rosters (election 53815). Aggregate counts only — no voter is named.</footer>
+</main>
+
+<script>
+const fmt = n => (n==null?"—":Number(n).toLocaleString("en-US"));
+const CT = new Intl.DateTimeFormat("en-US",{timeZone:"America/Chicago",month:"short",day:"numeric",hour:"numeric",minute:"2-digit",hour12:true,timeZoneName:"short"});
+function ctime(s){ const m=String(s).match(/(\d{4})-(\d\d)-(\d\d)[ T](\d\d):(\d\d)/); return m?CT.format(new Date(Date.UTC(+m[1],+m[2]-1,+m[3],+m[4],+m[5]))):"—"; }
+
+fetch("leakage.json",{cache:"no-store"}).then(r=>r.json()).then(d=>{
+  const s=d.statewide;
+  document.getElementById("meta").textContent = `Updated ${ctime(d.generated_utc)}. Rebuilt each hour with the voter-by-voter match.`;
+  document.getElementById("collected").textContent = d.counties_collected.join(", ");
+  document.getElementById("src").innerHTML = `Each county's own roster vs. the SOS's per-county rosters, election 53815. "Filed elsewhere" counts a county-only voter found on the SOS roster of a different county we collect.`;
+  const t=document.getElementById("tiles");
+  const tile=(k,v,sub)=>`<div class="tile"><div class="k">${k}</div><div class="v">${v}</div><div class="s">${sub}</div></div>`;
+  t.innerHTML =
+    tile("Filed under another county", fmt(s.leaked_to_other_county), "state recorded the vote elsewhere") +
+    tile("On a county list, not the state's", fmt(s.county_only), "across collected counties") +
+    tile("Counties collected", String(d.counties_collected.length), "the window we can see leakage within");
+  document.getElementById("rows").innerHTML = d.counties.map(c=>{
+    const chips = c.filed_under.length
+      ? c.filed_under.map(f=>`<span class="chip">${f.name} <b>${fmt(f.count)}</b></span>`).join("")
+      : `<span class="sub">none seen</span>`;
+    return `<tr class="${c.leaked_to_other_county?'':'zero'}"><td class="name">${c.name}</td>`
+      + `<td>${fmt(c.county_only)}</td>`
+      + `<td class="leak">${fmt(c.leaked_to_other_county)}</td>`
+      + `<td class="chips">${chips}</td>`
+      + `<td>${fmt(c.not_in_any_roster_we_hold)}</td></tr>`;
+  }).join("");
+}).catch(()=>{ document.getElementById("meta").textContent="Could not load the leakage data (leakage.json). Please refresh."; });
+</script>
+</body>
+</html>
